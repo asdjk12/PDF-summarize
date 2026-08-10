@@ -1,0 +1,2713 @@
+![image 1](<Week4-SyntacticParsing-CL_images/imageFile1.png>)
+
+# FIT5217
+
+Natural Language Processing
+
+###### Week 4 – Syntactic Parsing
+
+###### Trang Vu
+
+(Slides and material built on the foundational work of : Ray Mooney and Nigel Collier, Ryan Cotterell, Julia Hockenmaier
+
+### Last Week
+
+###### NLP tasks dealing with words…
+
+‐ E.g. POS-tagging
+
+###### … requiring finite-state representations,
+
+‐ Finite-state machine
+
+###### … the corresponding probabilistic models,
+
+‐ Finite-state machine with probabilistic transition, Hidden Markov Models
+
+‐ Learning: Maximum Likelihood Estimation (MLE)
+
+###### … and appropriate search algorithms
+
+‐ Dynamic programming: Viterbi
+
+### This Week
+
+###### NLP tasks dealing with sentences…
+
+‐ Syntactic parsing, dependency parsing
+
+###### … require (at least) context-free representations,
+
+‐ Context-free grammars, dependency grammars
+
+###### … the corresponding probabilistic models,
+
+‐ Probabilistic Context-Free Grammars (PCFG)
+
+###### … and appropriate search algorithms
+
+‐ Dynamic programming: CKY parsing
+
+### Overview
+
+- 1. Syntax
+- 2. Syntactic Parsing
+- 3. CKY Parsing
+- 4. Statistical Parsing
+- 5. Probabilistic CKY Parsing
+- 6. PCFG Training
+- 7. Lexicalized PCFGs
+- 8. Evaluating model performance
+- 9. Alternatives
+- 10. New Developments
+
+
+###### What is the structure of a sentence?
+
+- • Sentence structure is hierarchical:
+
+‐ A sentence consists of words (I, ate, the spaghetti, with, meatballs)
+
+‐ …which form phrases or constituents: “the spaghetti with meatballs”
+
+- • Sentence structure defines dependencies between words or phrases (constituents):
+
+
+![image 5](<Week4-SyntacticParsing-CL_images/imageFile5.png>)
+
+### Phrase Chunking
+
+###### • Find all non-recursive noun phrases (NPs) and verb phrases (VPs) in a sentence.
+
+‐ [NP I] [VP ate] [NP the spaghetti] [PP with] [NP meatballs].
+
+‐ [NP He ] [VP reckons ] [NP the current account deficit ] [VP will narrow ] [PP to ] [NP only # 1.8 billion ] [PP in ] [NP September ]
+
+### Phrase Chunking as Sequence Labelling
+
+###### • Tag individual words with one of 3 tags
+
+‐ B (Begin) word starts new target phrase
+
+‐ I (Inside) word is part of target phrase but not the first word
+
+‐ O (Other) word is not part of target phrase
+
+###### • Sample for NP chunking
+
+‐ He reckons the current account deficit will narrow to only # 1.8 billion in
+
+September.
+
+Begin Inside Other
+
+###### • Cannot generate hierarchical structure!
+
+### Syntax
+
+###### A theory of syntax should explain which sentences are well-formed (grammatical) and which are not:
+
+![image 9](<Week4-SyntacticParsing-CL_images/imageFile9.png>)
+
+- – Note that well-formed is distinct from being meaningful
+- – Otherwise, the mathematical study of word order
+
+
+Colorless green ideas sleep furiously. (Image source)
+
+###### A parser is an algorithm for analysing a sentence given a grammar.
+
+- – It may just answer yes/no to answer Does this sentence conform to the grammar?
+- – It may also produce a structure description (parse tree) for sentences.
+
+
+### Overview
+
+- 1. Syntax
+- 2. Syntactic Parsing
+- 3. CKY Parsing
+- 4. Statistical Parsing
+- 5. Probabilistic CKY Parsing
+- 6. PCFG Training
+- 7. Lexicalized PCFGs
+- 8. Evaluating model performance
+- 9. Alternatives
+- 10. New Developments
+
+
+### Syntactic Parsing
+
+• Produce the correct syntactic parse tree for a sentence.
+
+![image 12](<Week4-SyntacticParsing-CL_images/imageFile12.png>)
+
+### Context Free Grammars (CFG)
+
+|A context free grammar is a 4-tuple G=(S,Σ,N,R):<br><br>• N a set of non-terminal symbols (or variables)<br><br>‐ e.g. N={S, NP, VP, PP, Noun, Verb, …}<br><br>•  a set of terminal symbols (disjoint from N)<br><br>‐ e.g.  = {I, you, he, eat, drink, meatball, …}<br><br>• R a set of productions or rules<br><br>‐ 𝑅 ⊆ A→ where A is a non-terminal (𝐴 ∈ 𝑁)<br><br>and  is a string of symbols from ( N)*<br><br>• S, a designated non-terminal called the start symbol|
+|---|
+
+
+###### CFG defines phrase structure trees
+
+![image 15](<Week4-SyntacticParsing-CL_images/imageFile15.png>)
+
+- • Leaf nodes (I, eat, …) correspond to the words in the sentence
+- • Intermediate nodes (NP, VP, PP) span substrings (= the yield of the node), and correspond to nonterminal constituents
+- • The root spans the entire sentence and is labelled with the start symbol of the grammar (S)
+
+
+![image 16](<Week4-SyntacticParsing-CL_images/imageFile16.png>)
+
+### A toy CFG
+
+###### Grammar Lexicon
+
+S → NP VP S → Aux NP VP S → VP
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer
+
+NP → Pronoun
+
+Pronoun → I | he | she | me
+
+NP → Proper-Noun NP → Det Nominal Nominal → Noun Nominal → Nominal Noun
+
+Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+Nominal → Nominal PP
+
+VP → Verb VP → Verb NP VP → VP PP PP → Prep NP
+
+### Sentence Generation
+
+###### • Sentences are generated by recursively rewriting the start symbol using the productions until only terminal symbols remain. S
+
+Grammar
+
+S → NP VP S → Aux NP VP S → VP NP → Pronoun NP → Proper-Noun NP → Det Nominal Nominal → Noun Nominal → Nominal Noun
+
+VP Verb NP
+
+###### Derivation or Parse Tree
+
+Nominal → Nominal PP
+
+VP → Verb VP → Verb NP VP → VP PP PP → Prep NP
+
+Det Nominal Nominal PP
+
+book
+
+the
+
+Lexicon
+
+Det → the | a | that | this Noun → book | flight | meal | money
+
+Prep NP
+
+Noun
+
+Verb → book | include | prefer
+
+Proper-Noun
+
+flight
+
+###### through
+
+Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+Houston
+
+### Parsing
+
+###### • Given a string of terminals and a CFG, determine if the string can be generated by the CFG.
+
+‐ Also return all possible parse trees for the string
+
+###### • Must search the space of derivations for one that derives the given string.
+
+‐ Top-Down Parsing: Start searching space of derivations for the start symbol.
+
+‐ Bottom-up Parsing: Start search space of reverse derivations from the
+
+terminal symbols in the string.
+
+Parsing Example
+
+Grammar
+
+S
+
+S → NP VP S → Aux NP VP S → VP
+
+###### VP
+
+NP → Pronoun NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### Verb NP
+
+###### book that flight
+
+###### book Det Nominal
+
+PP → Prep NP
+
+Lexicon
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+###### that Noun
+
+flight
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### NP VP
+
+###### Pronoun
+
+PP → Prep NP
+
+Lexicon
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### NP VP
+
+###### Pronoun
+
+PP → Prep NP
+
+X
+
+Lexicon
+
+###### book
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### NP VP
+
+###### ProperNoun
+
+PP → Prep NP
+
+Lexicon
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### NP VP
+
+###### ProperNoun
+
+PP → Prep NP
+
+X
+
+Lexicon
+
+###### book
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### NP VP
+
+###### Det Nominal
+
+PP → Prep NP
+
+Lexicon
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### NP VP
+
+###### Det Nominal
+
+X
+
+PP → Prep NP
+
+Lexicon
+
+###### book
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### Aux NP VP
+
+PP → Prep NP
+
+Lexicon
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### Aux NP VP
+
+X
+
+###### book
+
+PP → Prep NP
+
+Lexicon
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### VP
+
+PP → Prep NP
+
+Lexicon
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### VP
+
+###### Verb
+
+PP → Prep NP
+
+Lexicon
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### VP
+
+###### Verb
+
+PP → Prep NP
+
+Lexicon
+
+book
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### VP
+
+###### Verb
+
+PP → Prep NP
+
+###### X
+
+Lexicon
+
+book
+
+that
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### VP
+
+###### Verb NP
+
+PP → Prep NP
+
+Lexicon
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### VP
+
+###### Verb NP
+
+PP → Prep NP
+
+Lexicon
+
+###### book
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### VP
+
+###### Verb NP
+
+PP → Prep NP
+
+Lexicon
+
+###### book Pronoun
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### VP
+
+###### Verb NP
+
+PP → Prep NP
+
+Lexicon
+
+book Pronoun
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+###### X
+
+###### that
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### VP
+
+###### Verb NP
+
+PP → Prep NP
+
+Lexicon
+
+###### book ProperNoun
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### VP
+
+###### Verb NP
+
+PP → Prep NP
+
+Lexicon
+
+book ProperNoun
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+###### X
+
+###### that
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### VP
+
+###### Verb NP
+
+PP → Prep NP
+
+Lexicon
+
+###### book Det Nominal
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### VP
+
+###### Verb NP
+
+PP → Prep NP
+
+Lexicon
+
+###### book Det Nominal
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+###### that
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### VP
+
+###### Verb NP
+
+PP → Prep NP
+
+Lexicon
+
+###### book Det Nominal
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+###### that Noun
+
+###### S
+
+S → Aux NP VP S → VP
+
+NP → Pronoun NP → Proper-Noun
+
+###### VP
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### Verb NP
+
+PP → Prep NP
+
+###### book Det Nominal
+
+Lexicon
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+###### that Noun
+
+flight
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+PP → Prep NP
+
+Lexicon
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+###### book that flight
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+PP → Prep NP
+
+Lexicon
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+###### Noun
+
+###### book that flight
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+PP → Prep NP
+
+###### Nominal
+
+Lexicon
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+###### Noun
+
+###### book that flight
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### Nominal
+
+PP → Prep NP
+
+###### Nominal Noun
+
+Lexicon
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+###### Noun
+
+###### book that flight
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### Nominal
+
+PP → Prep NP
+
+###### Nominal Noun
+
+Lexicon
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+X
+
+###### Noun
+
+###### book that flight
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### Nominal
+
+PP → Prep NP
+
+###### Nominal PP
+
+Lexicon
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+###### Noun
+
+###### book that flight
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### Nominal
+
+PP → Prep NP
+
+###### Nominal PP
+
+Lexicon
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+###### Noun Det
+
+###### book that flight
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### Nominal
+
+PP → Prep NP
+
+Nominal PP
+
+Lexicon
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+###### NP
+
+Noun Det
+
+Nominal
+
+book that flight
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### Nominal
+
+Nominal PP
+
+PP → Prep NP
+
+###### NP
+
+Lexicon
+
+###### Noun Det
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+###### Nominal
+
+book that
+
+Noun
+
+flight
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### Nominal
+
+###### Nominal PP
+
+PP → Prep NP
+
+###### NP
+
+Lexicon
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+Noun Det
+
+###### Nominal
+
+###### book that
+
+Noun
+
+flight
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### Nominal
+
+###### S
+
+###### Nominal PP
+
+PP → Prep NP
+
+###### NP
+
+###### VP
+
+Lexicon
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+Noun Det
+
+###### Nominal
+
+###### book that
+
+Noun
+
+flight
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### Nominal
+
+###### S
+
+###### Nominal PP
+
+PP → Prep NP
+
+###### NP
+
+###### VP
+
+Lexicon
+
+X
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+Noun Det
+
+###### Nominal
+
+###### book that
+
+Noun
+
+flight
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### Nominal
+
+###### Nominal PP
+
+X
+
+PP → Prep NP
+
+###### NP
+
+Lexicon
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+Noun Det
+
+###### Nominal
+
+###### book that
+
+Noun
+
+flight
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+PP → Prep NP
+
+###### NP
+
+Lexicon
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+Verb Det
+
+###### Nominal
+
+###### book that
+
+###### Noun
+
+flight
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### VP
+
+PP → Prep NP
+
+###### NP
+
+Lexicon
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+Verb
+
+###### Nominal
+
+Det
+
+###### book that
+
+###### Noun
+
+flight
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### S
+
+VP
+
+PP → Prep NP
+
+###### NP
+
+Lexicon
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+Verb
+
+###### Nominal
+
+###### Det
+
+###### book that
+
+###### Noun
+
+flight
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+S
+
+###### X
+
+VP
+
+PP → Prep NP
+
+###### NP
+
+Lexicon
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+Verb
+
+###### Nominal
+
+###### Det
+
+###### book that
+
+###### Noun
+
+flight
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### VP
+
+VP
+
+###### PP
+
+PP → Prep NP
+
+###### NP
+
+Lexicon
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+Verb
+
+###### Nominal
+
+Det
+
+###### book that
+
+###### Noun
+
+flight
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### VP
+
+VP
+
+###### PP
+
+PP → Prep NP
+
+###### X
+
+###### NP
+
+Lexicon
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+Verb
+
+###### Nominal
+
+Det
+
+###### book that
+
+Noun
+
+flight
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### VP
+
+PP → Prep NP
+
+###### NP
+
+Lexicon
+
+###### NP
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+Verb
+
+###### Nominal
+
+Det
+
+###### book that
+
+Noun
+
+flight
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### VP
+
+PP → Prep NP
+
+###### NP
+
+Lexicon
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+Verb
+
+###### Nominal
+
+Det
+
+###### book that
+
+###### Noun
+
+flight
+
+NP → Proper-Noun
+
+NP → Det Nominal Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+###### S
+
+###### VP
+
+PP → Prep NP
+
+###### NP
+
+Lexicon
+
+Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer Pronoun → I | he | she | me Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through
+
+Verb
+
+###### Nominal
+
+Det
+
+###### book that
+
+Noun
+
+flight
+
+### Top Down vs. Bottom Up
+
+- • Top down never explores options that will not lead to a full parse, but can explore many options that never connect to the actual sentence.
+- • Bottom up never explores options that do not connect to the actual sentence but can explore options that can never lead to a full parse.
+- • Relative amounts of wasted search depend on how much the grammar
+
+
+###### branches in each direction.
+
+![image 66](<Week4-SyntacticParsing-CL_images/imageFile66.png>)
+
+![image 67](<Week4-SyntacticParsing-CL_images/imageFile67.png>)
+
+Top-Down Bottom-Up
+
+### Overview
+
+- 1. Syntax
+- 2. Syntactic Parsing
+- 3. CKY Parsing
+- 4. Statistical Parsing
+- 5. Probabilistic CKY Parsing
+- 6. PCFG Training
+- 7. Lexicalized PCFGs
+- 8. Evaluating model performance
+- 9. Alternatives
+- 10. New Developments
+
+
+### Dynamic Programming Parsing
+
+- • To avoid extensive repeated work, must cache intermediate results, i.e. completed phrases.
+- • Caching (memorizing) critical to obtaining a polynomial time parsing (recognition) algorithm for CFGs.
+- • Dynamic programming algorithms based on both top-down and bottomup search can achieve O(n3) recognition time where n is the length of the input string.
+
+
+###### Dynamic Programming Parsing Methods
+
+- • CKY (Cocke-Kasami-Younger) algorithm based on bottom-up parsing and requires first normalizing the grammar.
+- • Earley parser is based on top-down parsing and does not require
+
+
+normalizing grammar but is more complex.
+
+• More generally, chart parsers retain completed phrases in a chart and can combine top-down and bottom-up search.
+
+### CKY chart parsing algorithm
+
+###### • Bottom-up parsing:
+
+‐ Start with the words
+
+###### • Dynamic programming
+
+‐ Save the results in a table/chart
+
+‐ Re-use these results in finding larger constituents
+
+• First grammar must be converted to Chomsky normal form (CNF) in which
+
+productions must have either:
+
+‐ Exactly 2 non-terminal symbols on the RHS
+
+###### ‐ Or 1 terminal symbol (lexicon rules).
+
+### Chomsky Normal Form
+
+###### • The right-hand side of a standard CFG rules can have an arbitrary number of symbols (terminals and non-terminals)
+
+![image 73](<Week4-SyntacticParsing-CL_images/imageFile73.png>)
+
+VP -> ADV eat NLP
+
+###### • A CFG in Chomsky Normal Form (CNF) allows only two kinds of right-hand sides:
+
+‐ Two non-terminals: VP -> ADV VP
+
+‐ One terminal: VP -> eat
+
+###### • Any CFG can be transformed into an equivalent CFG in CNF by introducing new, rule-specific dummy non-terminals (VP1, VP2, …)
+
+![image 74](<Week4-SyntacticParsing-CL_images/imageFile74.png>)
+
+VP -> ADV VP1
+
+- VP1 -> ADV VP2
+- VP2 -> eat
+
+
+### Revisit - Our toy CFG to convert to CNF
+
+###### Grammar Lexicon
+
+|Det → the | a | that | this Noun → book | flight | meal | money Verb → book | include | prefer<br><br>Pronoun → I | he | she | me<br><br>Proper-Noun → Houston | NWA Aux → does Prep → from | to | on | near | through|
+|---|
+
+
+###### S → NP VP
+
+S → Aux NP VP S → VP NP → Pronoun NP → Proper-Noun
+
+NP → Det Nominal
+
+Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP PP → Prep NP
+
+Lexicon rules don’t need conversion, they are already in CNF format.
+
+### Chomsky Normal Form (CNF) Conversion
+
+###### Original Grammar Chomsky Normal Form
+
+###### S → NP VP
+
+S → NP VP S → Aux NP VP
+
+S → X1 VP X1 → Aux NP S → book | include | prefer S → Verb NP S → VP PP NP → I | he | she | me NP → Houston | NWA NP → Det Nominal Nominal → book | flight | meal | money Nominal → Nominal Noun
+
+###### S → VP
+
+NP → Pronoun NP → Proper-Noun NP → Det Nominal
+
+Nominal → Noun
+
+Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP VP → VP PP
+
+Nominal → Nominal PP
+
+VP → book | include | prefer VP → Verb NP VP → VP PP PP → Prep NP
+
+PP → Prep NP
+
+![image 78](<Week4-SyntacticParsing-CL_images/imageFile78.png>)
+
+### CKY Parser
+
+###### The root (S)
+
+table[i,j] contains all constituents (non-terminals)
+
+Book the flight
+
+words i +1 through j
+
+through Houston
+
+Find all possible split point k, such that
+
+###### table[i,j] -> table[i,k] table[k,j]
+
+![image 79](<Week4-SyntacticParsing-CL_images/imageFile79.png>)
+
+table[1,3] -> table[1,2] table[2,1]
+
+###### NP
+
+Nominal
+
+Det
+
+Populate the terminal (word)
+
+the Noun
+
+Partition into two parts at every possible position k
+
+flight
+
+- 0
+- 1
+- 2
+
+
+Noun
+
+NP → Houston | NWA
+
+- R6: NP → Det Nominal Nominal → book | flight | meal | money
+- R7: Nominal → Nominal Noun
+- R8: Nominal → Nominal PP VP → book | include | prefer
+- R9: VP → Verb NP
+- R10: VP → VP PP
+- R11: PP → Prep NP
+
+
+Det
+
+Nominal, Noun
+
+###### Det → the | a | that | this Noun → book | flight | meal | money
+
+- 0
+- 1
+- 2
+
+
+None
+
+Noun
+
+NP → Houston | NWA
+
+- R6: NP → Det Nominal Nominal → book | flight | meal | money
+- R7: Nominal → Nominal Noun
+- R8: Nominal → Nominal PP VP → book | include | prefer
+- R9: VP → Verb NP
+- R10: VP → VP PP
+- R11: PP → Prep NP Det → the | a | that | this
+
+
+NP (R6, 1)
+
+Det
+
+Nominal, Noun
+
+None
+
+NP → I | he | she | me
+
+- 0
+- 1
+- 2
+
+
+None
+
+Noun
+
+NP → Houston | NWA
+
+- R6: NP → Det Nominal Nominal → book | flight | meal | money
+- R7: Nominal → Nominal Noun
+- R8: Nominal → Nominal PP VP → book | include | prefer
+- R9: VP → Verb NP
+- R10: VP → VP PP
+- R11: PP → Prep NP Det → the | a | that | this
+
+
+NP (R6, 1)
+
+Det
+
+Nominal, Noun
+
+None
+
+- 0
+- 1
+- 2
+
+
+None
+
+Noun
+
+NP → Houston | NWA
+
+- R6: NP → Det Nominal Nominal → book | flight | meal | money
+- R7: Nominal → Nominal Noun
+- R8: Nominal → Nominal PP VP → book | include | prefer
+- R9: VP → Verb NP
+- R10: VP → VP PP
+- R11: PP → Prep NP Det → the | a | that | this
+
+
+NP (R6, 1)
+
+None
+
+Det
+
+Nominal, Noun
+
+Nominal (R8, 3)
+
+None
+
+None
+
+- 0
+- 1
+- 2
+
+
+None
+
+Noun
+
+NP → Houston | NWA
+
+- R6: NP → Det Nominal Nominal → book | flight | meal | money
+- R7: Nominal → Nominal Noun
+- R8: Nominal → Nominal PP VP → book | include | prefer
+- R9: VP → Verb NP
+- R10: VP → VP PP
+- R11: PP → Prep NP Det → the | a | that | this
+
+
+###### NP (R6, 1) NP (R6, 2)
+
+None
+
+Det
+
+Nominal, Noun
+
+Nominal (R8, 3)
+
+None
+
+- 0
+- 1
+- 2
+
+
+S (R4, 1)
+
+None
+
+Noun
+
+NP → Houston | NWA
+
+VP (R9, 1)
+
+- R6: NP → Det Nominal Nominal → book | flight | meal | money
+- R7: Nominal → Nominal Noun
+- R8: Nominal → Nominal PP VP → book | include | prefer
+- R9: VP → Verb NP
+- R10: VP → VP PP
+- R11: PP → Prep NP Det → the | a | that | this
+
+
+NP (R6, 1)
+
+NP (R6, 2)
+
+None
+
+Det
+
+Nominal, Noun
+
+Nominal (R8, 3)
+
+None
+
+###### Tree #1
+
+- R5: S → VP PP NP → I | he | she | me NP → Houston | NWA
+- R6: NP → Det Nominal Nominal → book | flight | meal | money
+- R7: Nominal → Nominal Noun
+- R8: Nominal → Nominal PP VP → book | include | prefer
+- R9: VP → Verb NP
+- R10: VP → VP PP
+- R11: PP → Prep NP Det → the | a | that | this
+
+
+S, VP, Verb, Nominal, Noun
+
+VP (R9, 1) S (R4, 1)
+
+- VP (R9, 1)
+
+S (R4, 1)
+
+- VP (R10,3)
+
+
+None
+
+- 0
+- 1
+- 2
+
+
+None
+
+NP (R6, 1)
+
+NP (R6, 2)
+
+None
+
+Det
+
+Nominal, Noun
+
+Nominal (R8, 3)
+
+None
+
+- 0
+- 1
+- 2
+
+
+S (R4, 1)
+
+None
+
+Noun
+
+###### Tree #2
+
+NP → Houston | NWA R6: NP → Det Nominal
+
+VP (R9, 1)
+
+Nominal → book | flight | meal | money R7: Nominal → Nominal Noun R8: Nominal → Nominal PP
+
+NP (R6, 1)
+
+NP (R6, 2)
+
+None
+
+Det
+
+VP → book | include | prefer
+
+- R9: VP → Verb NP
+- R10: VP → VP PP R11: PP → Prep NP
+
+
+Nominal, Noun
+
+Nominal (R8, 3)
+
+None
+
+Det → the | a | that | this
+
+### Complexity of CKY (recognition)
+
+- • There are (n(n+1)/2) = O(n2) cells
+- • Filling each cell requires looking at every possible split point between the two non-terminals needed to introduce a new phrase.
+- • There are O(n) possible split points.
+- • Total time complexity is O(n3)
+
+
+### Overview
+
+- 1. Syntax
+- 2. Syntactic Parsing
+- 3. CKY Parsing
+- 4. Statistical Parsing
+- 5. Probabilistic CKY Parsing
+- 6. PCFG Training
+- 7. Lexicalized PCFGs
+- 8. Evaluating model performance
+- 9. Alternatives
+- 10. New Developments
+
+
+### Grammars are ambiguous
+
+|• A grammar might generate multiple trees for a sentence<br>• What’s the most likely parse tree 𝜏 for sentence S?<br>• We need a model of P(𝜏|𝑆)<br><br><br>![image 91](<Week4-SyntacticParsing-CL_images/imageFile91.png>)|
+|---|
+
+
+### Statistical Parsing
+
+- • Statistical parsing uses a probabilistic model of syntax in order to assign probabilities to each parse tree.
+- • Provides principled approach to resolving syntactic ambiguity.
+- • Allows supervised learning of parsers from tree-banks of parse trees provided by human linguists.
+
+
+#### Probabilistic Context Free Grammar (PCFG)
+
+![image 94](<Week4-SyntacticParsing-CL_images/imageFile94.png>)
+
+- • A PCFG is a probabilistic version of a CFG where each production has a probability.
+- • For every nonterminal X, define a probability distribution P(X → α | X) over all rules with the same LHS symbol X.
+- • Probabilities of all productions rewriting a given non-terminal must add to 1, defining a distribution for each non-terminal.
+
+
+|Computing 𝐏(𝝉) with a PCFG|
+|---|
+
+
+- • Assume productions for each node are chosen independently.
+- • The probability of a tree τ is the product of the probabilities of all its rules
+
+
+![image 96](<Week4-SyntacticParsing-CL_images/imageFile96.png>)
+
+![image 97](<Week4-SyntacticParsing-CL_images/imageFile97.png>)
+
+### Revisit Our Toy PCFG
+
+###### Lexicon
+
+###### Prob
+
+###### Grammar
+
+Det → the | a | that | this 0.6 0.2 0.1 0.1
+
+S → NP VP S → Aux NP VP S → VP NP → Pronoun NP → Proper-Noun
+
+0.8 0.1 0.1 0.2 0.2 0.6 0.3
+
++
+
+1.0
+
+Noun → book | flight | meal | money
+
+0.1 0.5 0.2 0.2 Verb → book | include | prefer
+
++
+
+1.0
+
+0.5 0.2 0.3 Pronoun → I | he | she | me
+
+NP → Det Nominal
+
+Nominal → Noun Nominal → Nominal Noun Nominal → Nominal PP VP → Verb VP → Verb NP
+
+0.5 0.1 0.1 0.3
+
++
+
+1.0
+
+0.2
+
+Proper-Noun → Houston | NWA
+
+0.5 0.2 0.5 0.3 1.0
+
+0.8 0.2 Aux → does
+
++
+
+1.0
+
+1.0 Prep → from | to | on | near | through
+
+VP → VP PP
+
+PP → Prep NP
+
+0.25 0.25 0.1 0.2 0.2
+
+- • Probability of derivation is the product of the probabilities of its productions.
+
+
+###### S D1
+
+|P(D1) = 0.1 × 0.5 × 0.5 × 0.6 × 0.6 ×<br><br>0.5 × 0.3 × 1.0 × 0.2 × 0.2 ×<br><br>0.5 × 0.8 = 0.0000216|
+|---|
+
+
+0.1
+
+VP Verb NP Det Nominal Nominal PP
+
+0.5 0.5
+
+0.6 0.6 0.5
+
+book
+
+the
+
+1.0
+
+0.3
+
+Prep NP through
+
+Noun
+
+0.2
+
+0.5 0.2
+
+Proper-Noun
+
+flight
+
+0.8
+
+Houston
+
+### Syntactic Disambiguation
+
+- • Resolve ambiguity by picking most probable parse tree.
+
+
+S VP
+
+###### D2
+
+0.1
+
+|P(D2) = 0.1 × 0.3 × 0.5 × 0.6 × 0.5 ×<br><br>0.6 × 0.3 × 1.0 × 0.5 × 0.2 × 0.2 × 0.8 = 0.00001296|
+|---|
+
+
+0.3
+
+VP Verb NP book Det Nominal
+
+0.5 0.5
+
+0.6 0.6
+
+PP
+
+1.0
+
+0.3 0.5 0.2
+
+Noun
+
+Prep NP through
+
+the
+
+0.2
+
+Proper-Noun
+
+P(D1) > P(D2)
+
+flight
+
+0.8
+
+Houston
+
+###### Tree D1 is more probable!
+
+###### • Probability of a sentence is the sum of the probabilities of all of its derivations.
+
+P(“book the flight through Houston”) =
+
+P(D1) + P(D2) = 0.0000216 + 0.00001296 = 0.00003456
+
+### Overview
+
+- 1. Syntax
+- 2. Syntactic Parsing
+- 3. CKY Parsing
+- 4. Statistical Parsing
+- 5. Probabilistic CKY Parsing
+- 6. PCFG Training
+- 7. Lexicalized PCFGs
+- 8. Evaluating model performance
+- 9. Alternatives
+- 10. New Developments
+
+
+- • CKY can be modified for PCFG parsing by including in each cell a probability for each non-terminal.
+- • When transforming the grammar to CNF, must set production probabilities to preserve the probability of derivations.
+
+
+## Probabilistic Grammar Conversion Addingdummy non-terminals, and setting the probability of
+
+###### Original Grammar Chomsky Normal Form
+
+###### S → NP VP
+
+0.8
+
+0.8
+
+S → NP VP
+
+the new rule with the dummy nonterminal on the LHS to 1
+
+|S → Aux NP VP 0.1|
+|---|
+
+
+|S → X1 VP X1 → Aux NP<br><br>0.1 1.0|
+|---|
+
+
+S → book | include | prefer 0.01 0.004 0.006
+
+0.1
+
+S → VP
+
+S → Verb NP
+
+0.05 0.03
+
+S → VP PP
+
+|NP → Pronoun 0.2|
+|---|
+
+
+|NP → I | he | she | me 0.1 0.02 0.02 0.06|
+|---|
+
+
+Normalise to preserve the original probabilities
+
+NP → Houston | NWA 0.16 .04
+
+0.2 0.6
+
+NP → Proper-Noun NP → Det Nominal
+
+NP → Det Nominal
+
+0.6
+
+Nominal → book | flight | meal | money
+
+0.3
+
+Nominal → Noun
+
+0.03 0.15 0.06 0.06 Nominal → Nominal Noun Nominal → Nominal PP VP → book | include | prefer
+
+0.2 0.5 0.2
+
+0.2 0.5
+
+Nominal → Nominal Noun Nominal → Nominal PP VP → Verb
+
+0.1 0.04 0.06
+
+VP → Verb NP
+
+0.5
+
+0.5
+
+VP → Verb NP
+
+VP → VP PP PP → Prep NP
+
+0.3 1.0
+
+0.3 1.0
+
+VP → VP PP PP → Prep NP
+
+90
+
+- 0
+- 1
+- 2
+- 3
+- 4
+
+
+- R5: S → VP PP 0.03 NP → I | he | she | me
+
+0.1 0.02 0.02 0.06 NP → Houston | NWA
+
+0.16 .04
+
+- R6: NP → Det Nominal 0.6 Nominal → book | flight | meal | money
+
+0.03 0.15 0.06 0.06
+
+- R7: Nominal → Nominal Noun 0.2
+- R8: Nominal → Nominal PP 0.5 VP → book | include | prefer
+
+0.1 0.04 0.06
+
+- R9: VP → Verb NP 0.5
+- R10: VP → VP PP 0.3
+- R11: PP → Prep NP 1.0 Det → the | a | that | this
+
+
+Noun:.1
+
+Det:.6
+
+Nominal:.15 Noun:.5
+
+Prep:.2
+
+0.6 0.2 0.1 0.1 Prep → from | to | on | near | through 0.25 0.25 0.1 0.2 0.2
+
+NP:.16
+
+PropNoun:.8
+
+- 0
+- 1
+- 2
+- 3
+- 4
+
+
+- R5: S → VP PP 0.03 NP → I | he | she | me
+
+0.1 0.02 0.02 0.06 NP → Houston | NWA
+
+0.16 .04
+
+- R6: NP → Det Nominal 0.6 Nominal → book | flight | meal | money
+
+0.03 0.15 0.06 0.06
+
+- R7: Nominal → Nominal Noun 0.2
+- R8: Nominal → Nominal PP 0.5 VP → book | include | prefer
+
+0.1 0.04 0.06
+
+- R9: VP → Verb NP 0.5
+- R10: VP → VP PP 0.3
+- R11: PP → Prep NP 1.0 Det → the | a | that | this
+
+
+Noun:.1
+
+None
+
+NP (R6, 1): 6*.6*.15
+
+Det:.6
+
+=.054
+
+Nominal:.15 Noun:.5
+
+None
+
+PP (R11, 4): 1.0*.2*.16
+
+Prep:.2
+
+=.032
+
+0.6 0.2 0.1 0.1 Prep → from | to | on | near | through 0.25 0.25 0.1 0.2 0.2
+
+NP:.16
+
+PropNoun:.8
+
+VP (R9, 1):
+
+0.01 0.004 0.006
+
+.5*.5*.054 =.0135 S (R4, 1): 05*.5*.054
+
+Verb:.5 Nominal:.03 Noun:.1
+
+- R4: S → Verb NP 0.05
+- R5: S → VP PP 0.03 NP → I | he | she | me
+
+0.1 0.02 0.02 0.06 NP → Houston | NWA
+
+0.16 .04
+
+- R6: NP → Det Nominal 0.6 Nominal → book | flight | meal | money
+
+0.03 0.15 0.06 0.06
+
+- R7: Nominal → Nominal Noun 0.2
+- R8: Nominal → Nominal PP 0.5 VP → book | include | prefer
+
+0.1 0.04 0.06
+
+- R9: VP → Verb NP 0.5
+- R10: VP → VP PP 0.3
+- R11: PP → Prep NP 1.0 Det → the | a | that | this
+
+
+- 0
+- 1
+- 2
+- 3
+- 4
+
+
+None
+
+=.00135
+
+NP (R6, 1): 6*.6*.15
+
+None
+
+Det:.6
+
+=.054
+
+Nominal
+
+(R8, 3):
+
+Nominal:.15 Noun:.5
+
+.5*.15*.032
+
+None
+
+=.0024
+
+PP (R11, 4): 1.0*.2*.16
+
+Prep:.2
+
+=.032
+
+0.6 0.2 0.1 0.1 Prep → from | to | on | near | through 0.25 0.25 0.1 0.2 0.2
+
+NP:.16
+
+PropNoun:.8
+
+VP (R9, 1):
+
+0.01 0.004 0.006
+
+Verb:.5 Nominal:.03 Noun:.1
+
+.0135 S (R4, 1): 00135
+
+- R4: S → Verb NP 0.05
+- R5: S → VP PP 0.03 NP → I | he | she | me
+
+0.1 0.02 0.02 0.06 NP → Houston | NWA
+
+0.16 .04
+
+- R6: NP → Det Nominal 0.6 Nominal → book | flight | meal | money
+
+0.03 0.15 0.06 0.06
+
+- R7: Nominal → Nominal Noun 0.2
+- R8: Nominal → Nominal PP 0.5 VP → book | include | prefer
+
+0.1 0.04 0.06
+
+- R9: VP → Verb NP 0.5
+- R10: VP → VP PP 0.3
+- R11: PP → Prep NP 1.0 Det → the | a | that | this
+
+
+- 0
+- 1
+- 2
+- 3
+- 4
+
+
+None
+
+None
+
+NP (R6, 2): 6*.6* .0024
+
+NP (R6, 1): 6*.6*.15
+
+None
+
+=.000864
+
+Det:.6
+
+=.054
+
+Nominal
+
+(R8, 3):
+
+Nominal:.15 Noun:.5
+
+.5*.15*.032
+
+None
+
+=.0024
+
+PP (R11, 4): 1.0*.2*.16
+
+Prep:.2
+
+=.032
+
+0.6 0.2 0.1 0.1 Prep → from | to | on | near | through 0.25 0.25 0.1 0.2 0.2
+
+NP:.16
+
+PropNoun:.8
+
+- S (R4, 1):
+
+.0000216
+
+- S (R5, 3):
+
+
+VP (R9, 1):
+
+0.01 0.004 0.006
+
+Verb:.5 Nominal:.03 Noun:.1
+
+.0135 S (R4, 1): 00135
+
+R4: S → Verb NP 0.05 R5: S → VP PP 0.03
+
+- 0
+- 1
+- 2
+- 3
+- 4
+
+
+None
+
+None
+
+.00001296
+
+NP → I | he | she | me
+
+0.1 0.02 0.02 0.06 NP → Houston | NWA
+
+NP (R6, 2): 6*.6* .0024
+
+NP (R6, 1): 6*.6*.15
+
+0.16 .04
+
+None
+
+=.000864
+
+Det:.6
+
+R6: NP → Det Nominal 0.6
+
+=.054
+
+Nominal → book | flight | meal | money 0.03 0.15 0.06 0.06
+
+Nominal
+
+(R8, 3):
+
+Nominal:.15 Noun:.5
+
+R7: Nominal → Nominal Noun 0.2 R8: Nominal → Nominal PP 0.5
+
+.5*.15*.032
+
+None
+
+=.0024
+
+VP → book | include | prefer
+
+0.1 0.04 0.06 R9: VP → Verb NP 0.5
+
+PP (R11, 4): 1.0*.2*.16
+
+Prep:.2
+
+- R10: VP → VP PP 0.3
+- R11: PP → Prep NP 1.0 Det → the | a | that | this 0.6 0.2 0.1 0.1 Prep → from | to | on | near | through 0.25 0.25 0.1 0.2 0.2
+
+
+=.032
+
+NP:.16
+
+PropNoun:.8
+
+###### Book the flight through Houston
+
+###### Length = 5 j= 1 2 3 4 5
+
+S :.01, VP:.1, Verb:.5 Nominal:.03 Noun:.1
+
+i=
+
+###### S (R4, 1):
+
+VP (R9, 1):
+
+###### Pick most probable parse, i.e. take max.
+
+.0000216
+
+.0135 S (R4, 1): 00135
+
+- 0
+- 1
+- 2
+- 3
+- 4
+
+
+None
+
+###### S (R5, 3):
+
+None
+
+.00001296
+
+NP (R6, 2): 6*.6* .0024
+
+NP (R6, 1): 6*.6*.15
+
+None
+
+=.000864
+
+Det:.6
+
+=.054
+
+Nominal
+
+(R8, 3):
+
+Nominal:.15 Noun:.5
+
+.5*.15*.032
+
+None
+
+=.0024
+
+PP (R11, 4): 1.0*.2*.16
+
+Prep:.2
+
+=.032
+
+NP:.16
+
+PropNoun:.8
+
+### Overview
+
+- 1. Syntax
+- 2. Syntactic Parsing
+- 3. CKY Parsing
+- 4. Statistical Parsing
+- 5. Probabilistic CKY Parsing
+- 6. PCFG Training
+- 7. Lexicalized PCFGs
+- 8. Evaluating model performance
+- 9. Alternatives
+- 10. New Developments
+
+
+### PCFG: Supervised Training
+
+• If parse trees are provided for training sentences, a grammar and its parameters can all be estimated directly from counts accumulated from
+
+the tree-bank (with appropriate smoothing).
+
+Tree Bank
+
+S NP VP John V NP PP
+
+|S → NP VP S → VP NP → Det A N NP → NP PP NP → PropN A → ε<br><br>A → Adj A<br><br>PP → Prep NP VP → V NP VP → VP PP<br><br>0.9 0.1 0.5<br><br>0.3<br><br>0.2 0.6 0.4 1.0 0.7 0.3|
+|---|
+
+
+put the dog in the pen
+
+|Supervised PCFG Training|
+|---|
+
+
+S NP VP
+
+John V NP PP
+
+put the dog in the pen
+
+.
+
+.
+
+.
+
+English
+
+### Treebanks
+
+- • English Penn Treebank: Standard corpus for testing syntactic parsing consists of 1.2 M words of text from the Wall Street Journal (WSJ).
+- • Typical to train on about 40,000 parsed sentences and test on an additional standard disjoint test set of 2,416 sentences.
+- • Chinese Penn Treebank: 100K words from the Xinhua news service.
+- • Other corpora existing in many languages, see the Wikipedia article “Treebank”
+- • See also http://universaldependencies.org/
+
+
+### First WSJ Sentence
+
+( (S
+
+(NP-SBJ (NP (NNP Pierre) (NNP Vinken) ) (, ,) (ADJP
+
+(NP (CD 61) (NNS years) )
+
+(JJ old) )
+
+(, ,) ) (VP (MD will) (VP (VB join) (NP (DT the) (NN board) )
+
+(PP-CLR (IN as)
+
+(NP (DT a) (JJ nonexecutive) (NN director) )) (NP-TMP (NNP Nov.) (CD 29) )))
+
+(. .) ))
+
+###### Estimating Production Probabilities
+
+- • Set of production rules can be taken directly from the set of rewrites in the treebank.
+- • Parameters can be directly estimated from frequency counts in the
+
+
+###### treebank.
+
+    
+
+→
+
+    
+
+→
+
+count( ) ( | )
+
+count( ) count( ) count( )
+
+P → = 
+
+=
+
+→
+
+
+
+### PCFG: Maximum Likelihood Training
+
+- • Given a set of sentences, induce a grammar that maximizes the probability that this data was generated from this grammar.
+- • Assume the number of non-terminals in the grammar is specified.
+
+
+### Overview
+
+- 1. Syntax
+- 2. Syntactic Parsing
+- 3. CKY Parsing
+- 4. Statistical Parsing
+- 5. Probabilistic CKY Parsing
+- 6. PCFG Training
+- 7. Lexicalized PCFGs
+- 8. Evaluating model performance
+- 9. Alternatives
+- 10. New Developments
+
+
+### Lexicalize PCFG
+
+- • PCFGs can’t distinguish between “eat sushi with chopsticks” and “eat sushi with tuna”.
+
+‐ We need to take words into account
+
+‐ Problem: sparse data
+
+‐
+
+- • In order to work well, PCFGs must be lexicalized, i.e. productions must be specialized to specific words by including their head-word in their LHS nonterminals (e.g. VP-eat).
+
+
+![image 118](<Week4-SyntacticParsing-CL_images/imageFile118.png>)
+
+![image 119](<Week4-SyntacticParsing-CL_images/imageFile119.png>)
+
+### Head Words
+
+- • Syntactic phrases usually have a word in them that is most “central” to the phrase.
+- • Simple rules can identify the head of any phrase by percolating head words up the parse tree.
+
+
+![image 121](<Week4-SyntacticParsing-CL_images/imageFile121.png>)
+
+‐ Head of a VP is the main verb
+
+‐ Head of an NP is the main noun
+
+‐ Head of a PP is the preposition
+
+‐ Head of a sentence is the head of its VP
+
+### Lexicalization Productions
+
+###### • Specialized productions can be generated by including the head word and its POS of each non-terminal as part of that non-terminal’s symbol.
+
+S
+
+liked-VBD
+
+NP
+
+VP
+
+liked-VBD
+
+John-NNP
+
+VBD NP DT Nominal Nominal PP
+
+NNP
+
+dog-NN
+
+###### Nominaldog-NN → Nominaldog-NN PPin-IN
+
+liked
+
+John
+
+dog-NN
+
+the
+
+in-IN dog-NN
+
+IN NP in
+
+NN
+
+pen-NN
+
+dog
+
+pen-NN
+
+DT Nominal the NN
+
+pen
+
+### Overview
+
+- 1. Syntax
+- 2. Syntactic Parsing
+- 3. CKY Parsing
+- 4. Statistical Parsing
+- 5. Probabilistic CKY Parsing
+- 6. PCFG Training
+- 7. Lexicalized PCFGs
+- 8. Evaluating model performance
+- 9. Alternatives
+- 10. New Developments
+
+
+### Parsing Evaluation Metrics
+
+- • Measure the fraction of the constituents that match between the computed and human parse trees. If P is the system’s parse tree and T is the human parse tree (the “gold standard”):
+
+‐ Recall = (# correct constituents in P) / (# constituents in T)
+
+‐ Precision = (# correct constituents in P) / (# constituents in P)
+
+- • Labeled Precision and labeled recall require getting the non-terminal label on the constituent node correct to count as correct.
+- • F1 is the harmonic mean of precision and recall.
+
+
+### Evaluate Example
+
+![image 126](<Week4-SyntacticParsing-CL_images/imageFile126.png>)
+
+https://linguistics.stackexchange.com/questions/1873/is-there-a-well-established-metric-to-measure-the-effectiveness-of-a-parsing-alg
+
+Evaluation Example
+
+###### Correct Tree T
+
+###### Computed Tree P
+
+S VP
+
+S
+
+VP
+
+Verb NP Det Nominal Nominal PP
+
+VP
+
+book
+
+Verb NP book Det Nominal
+
+PP
+
+the
+
+Prep NP through
+
+Noun
+
+Noun
+
+Prep NP through
+
+the
+
+Proper-Noun
+
+flight
+
+Proper-Noun
+
+flight
+
+Houston
+
+Houston
+
+# Constituents: 12 # Constituents: 12 # Correct Constituents: 10
+
+Recall = 10/12= 83.3% Precision = 10/12=83.3% F1 = 83.3%
+
+Note: It is only marked as correct if it covers the same span of input (i.e., look at the 2 Nominals
+
+in T and the single Nominal in P).
+
+- 1. Syntax
+- 2. Syntactic Parsing
+- 3. CKY Parsing
+- 4. Statistical Parsing
+- 5. Probabilistic CKY Parsing
+- 6. PCFG Training
+- 7. Lexicalized PCFGs
+- 8. Evaluating model performance
+- 9. Alternatives
+- 10. New Developments
+
+
+### Dependency Grammars
+
+• An alternative to phrase-structure grammar is to define a parse as a directed graph between the words of a sentence representing
+
+dependencies between the words.
+
+liked
+
+liked
+
+nsubj dobj
+
+John dog
+
+John dog
+
+det
+
+in
+
+the in
+
+the
+
+pen
+
+det
+
+pen
+
+the
+
+the
+
+###### There are other grammar formalism too: TAG, CCG, TSG.
+
+- 1. Syntax
+- 2. Syntactic Parsing
+- 3. CKY Parsing
+- 4. Statistical Parsing
+- 5. Probabilistic CKY Parsing
+- 6. PCFG Training
+- 7. Lexicalized PCFGs
+- 8. Evaluating model performance
+- 9. Alternatives
+- 10. New Developments
+
+
+### CKY Parsing… Some Challenges
+
+- • O(n³) complexity
+- • Grammar must be converted to Chomsky Normal Form, all rules of form A→BC or A→w. Distorts natural linguistic structure.
+- • Vanilla CKY treats all matching rules equally. No mechanism to prefer "I saw the man with the telescope" over its ambiguous parse.
+- • Rules must come from somewhere, hand-crafted grammars don't scale; learning from treebanks introduces coverage gaps.
+- • Words treated as discrete tokens; no access to embeddings or contextual representations from pre-training
+
+
+### Advancements
+
+![image 133](<Week4-SyntacticParsing-CL_images/imageFile133.png>)
+
+![image 134](<Week4-SyntacticParsing-CL_images/imageFile134.png>)
+
+- • Traditional PCFGs and n-grams struggle with unseen or long phrases and cannot capture meaning well.
+- • Core idea (CVG): Jointly learn syntax (tree structure) and semantic vector representations of phrases.
+- •Combine PCFG (discrete grammar rules) with neural composition (continuous vectors) to resolve meaning-based ambiguities.
+- •Use syntactically untied weights, so different phrase types are combined differently, leading to better parsing accuracy
+
+
+###### ACL, 2013
+
+![image 136](<Week4-SyntacticParsing-CL_images/imageFile136.png>)
+
+|“ We cast the problem of constituency parsing as a<br><br>sequence-to-sequence mapping problem... Our model<br><br>can be viewed as a sequence-to-sequence model that reads words of a sentence and outputs its parse tree encoded as a sequence of bracketed labels.”|
+|---|
+
+
+###### NeurIPS, 2015
+
+- • LSTM encoder reads the input sentence and produces a fixed context vector. An LSTM decoder with attention generates the linearized bracket string token by token (each open-bracket, label, word, close-bracket is a separate output token).
+- • No grammar rules, no CKY. The model learns valid tree structure purely from (sentence, parse) pairs in PTB training data. Beam search used at decode time.
+
+
+|![image 138](<Week4-SyntacticParsing-CL_images/imageFile138.png>)|
+|---|
+
+
+###### EMNLP, 2023
+
+|![image 139](<Week4-SyntacticParsing-CL_images/imageFile139.png>)| |IEEE and Language|
+|---|---|---|
+| |![image 140](<Week4-SyntacticParsing-CL_images/imageFile140.png>)| |
+
+
+###### Transactions on Audio, Speech ge Processing (2025)
+
+##### Feedback time!
+
+![image 142](<Week4-SyntacticParsing-CL_images/imageFile142.png>)
+
+![image 143](<Week4-SyntacticParsing-CL_images/imageFile143.png>)
+
+![image 144](<Week4-SyntacticParsing-CL_images/imageFile144.png>)
+
+** Please submit weekly Feedback! **
+
+![image 145](<Week4-SyntacticParsing-CL_images/imageFile145.png>)
+

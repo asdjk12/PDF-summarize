@@ -1,0 +1,2793 @@
+{
+  "analysis_version": 1,
+  "thresholds": {
+    "ocr_text_char_threshold": 80,
+    "ocr_large_image_text_char_threshold": 150,
+    "ocr_large_image_area_threshold": 50000
+  },
+  "documents": {
+    "Week 2 - Language Modelling-CL-2026": {
+      "source_json": "D:\\Leetcode\\PDF-summarize\\PDF_Output\\raw\\Week 2 - Language Modelling-CL-2026.json",
+      "source_pdf": "Week 2 - Language Modelling-CL-2026.pdf",
+      "page_count": 74,
+      "needs_ocr_pages": [
+        3,
+        6,
+        7,
+        10,
+        12,
+        13,
+        18,
+        19,
+        20,
+        21,
+        23,
+        24,
+        25,
+        32,
+        33,
+        34,
+        35,
+        38,
+        39,
+        41,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        73,
+        74
+      ],
+      "needs_ocr_page_count": 31,
+      "pages": {
+        "1": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 358,
+          "text_nodes": 5,
+          "image_count": 2,
+          "largest_image_area": 128158.2,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile1.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile2.png"
+          ]
+        },
+        "2": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 183,
+          "text_nodes": 8,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "3": {
+          "needs_ocr": true,
+          "reasons": [
+            "little extracted text and has large image"
+          ],
+          "text_chars": 110,
+          "text_nodes": 5,
+          "image_count": 1,
+          "largest_image_area": 279353.12,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile4.png"
+          ]
+        },
+        "4": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 189,
+          "text_nodes": 3,
+          "image_count": 1,
+          "largest_image_area": 58413.04,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile6.png"
+          ]
+        },
+        "5": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 343,
+          "text_nodes": 5,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "6": {
+          "needs_ocr": true,
+          "reasons": [
+            "little extracted text and has large image"
+          ],
+          "text_chars": 132,
+          "text_nodes": 2,
+          "image_count": 2,
+          "largest_image_area": 182901.08,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile8.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile9.png"
+          ]
+        },
+        "7": {
+          "needs_ocr": true,
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars": 54,
+          "text_nodes": 1,
+          "image_count": 6,
+          "largest_image_area": 43672.64,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile11.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile12.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile13.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile14.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile15.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile16.png"
+          ]
+        },
+        "8": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 91,
+          "text_nodes": 2,
+          "image_count": 1,
+          "largest_image_area": 25727.62,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile18.png"
+          ]
+        },
+        "9": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 230,
+          "text_nodes": 5,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "10": {
+          "needs_ocr": true,
+          "reasons": [
+            "little extracted text and has large image"
+          ],
+          "text_chars": 128,
+          "text_nodes": 3,
+          "image_count": 2,
+          "largest_image_area": 117504.17,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile21.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile22.png"
+          ]
+        },
+        "11": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 183,
+          "text_nodes": 8,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "12": {
+          "needs_ocr": true,
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars": 79,
+          "text_nodes": 2,
+          "image_count": 2,
+          "largest_image_area": 120594.94,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile25.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile26.png"
+          ]
+        },
+        "13": {
+          "needs_ocr": true,
+          "reasons": [
+            "little extracted text and has large image"
+          ],
+          "text_chars": 82,
+          "text_nodes": 2,
+          "image_count": 2,
+          "largest_image_area": 117504.17,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile28.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile29.png"
+          ]
+        },
+        "14": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 43,
+          "text_nodes": 1,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "15": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 51,
+          "text_nodes": 2,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "16": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 144,
+          "text_nodes": 4,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "17": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 183,
+          "text_nodes": 8,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "18": {
+          "needs_ocr": true,
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars": 15,
+          "text_nodes": 1,
+          "image_count": 2,
+          "largest_image_area": 124233.19,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile35.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile36.png"
+          ]
+        },
+        "19": {
+          "needs_ocr": true,
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars": 70,
+          "text_nodes": 1,
+          "image_count": 6,
+          "largest_image_area": 39116.58,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile38.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile39.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile40.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile41.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile42.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile43.png"
+          ]
+        },
+        "20": {
+          "needs_ocr": true,
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars": 27,
+          "text_nodes": 1,
+          "image_count": 7,
+          "largest_image_area": 42751.26,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile45.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile46.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile47.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile48.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile49.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile50.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile51.png"
+          ]
+        },
+        "21": {
+          "needs_ocr": true,
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars": 24,
+          "text_nodes": 1,
+          "image_count": 1,
+          "largest_image_area": 201783.29,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile53.png"
+          ]
+        },
+        "22": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 183,
+          "text_nodes": 8,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "23": {
+          "needs_ocr": true,
+          "reasons": [
+            "no extracted text but has image"
+          ],
+          "text_chars": 0,
+          "text_nodes": 0,
+          "image_count": 3,
+          "largest_image_area": 81363.01,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile56.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile57.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile58.png"
+          ]
+        },
+        "24": {
+          "needs_ocr": true,
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars": 47,
+          "text_nodes": 21,
+          "image_count": 4,
+          "largest_image_area": 95358.54,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile60.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile61.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile62.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile63.png"
+          ]
+        },
+        "25": {
+          "needs_ocr": true,
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars": 40,
+          "text_nodes": 2,
+          "image_count": 4,
+          "largest_image_area": 92112.48,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile65.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile66.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile67.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile68.png"
+          ]
+        },
+        "26": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 71,
+          "text_nodes": 1,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "27": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 235,
+          "text_nodes": 3,
+          "image_count": 1,
+          "largest_image_area": 37952.02,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile75.png"
+          ]
+        },
+        "28": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 385,
+          "text_nodes": 6,
+          "image_count": 1,
+          "largest_image_area": 37952.02,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile79.png"
+          ]
+        },
+        "29": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 308,
+          "text_nodes": 2,
+          "image_count": 1,
+          "largest_image_area": 255777.11,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile81.png"
+          ]
+        },
+        "30": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 152,
+          "text_nodes": 12,
+          "image_count": 1,
+          "largest_image_area": 136127.98,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile83.png"
+          ]
+        },
+        "31": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 678,
+          "text_nodes": 9,
+          "image_count": 1,
+          "largest_image_area": 14703.11,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile85.png"
+          ]
+        },
+        "32": {
+          "needs_ocr": true,
+          "reasons": [
+            "no extracted text but has image"
+          ],
+          "text_chars": 0,
+          "text_nodes": 0,
+          "image_count": 1,
+          "largest_image_area": 93328.25,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile87.png"
+          ]
+        },
+        "33": {
+          "needs_ocr": true,
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars": 16,
+          "text_nodes": 1,
+          "image_count": 1,
+          "largest_image_area": 99985.0,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile90.png"
+          ]
+        },
+        "34": {
+          "needs_ocr": true,
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars": 33,
+          "text_nodes": 3,
+          "image_count": 2,
+          "largest_image_area": 99985.0,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile93.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile94.png"
+          ]
+        },
+        "35": {
+          "needs_ocr": true,
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars": 52,
+          "text_nodes": 4,
+          "image_count": 3,
+          "largest_image_area": 99985.0,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile97.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile98.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile99.png"
+          ]
+        },
+        "36": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 200,
+          "text_nodes": 7,
+          "image_count": 1,
+          "largest_image_area": 185539.98,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile101.png"
+          ]
+        },
+        "37": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 197,
+          "text_nodes": 4,
+          "image_count": 1,
+          "largest_image_area": 185539.98,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile103.png"
+          ]
+        },
+        "38": {
+          "needs_ocr": true,
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars": 14,
+          "text_nodes": 1,
+          "image_count": 2,
+          "largest_image_area": 53196.0,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile105.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile106.png"
+          ]
+        },
+        "39": {
+          "needs_ocr": true,
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars": 44,
+          "text_nodes": 1,
+          "image_count": 1,
+          "largest_image_area": 53196.0,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile108.png"
+          ]
+        },
+        "40": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 183,
+          "text_nodes": 8,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "41": {
+          "needs_ocr": true,
+          "reasons": [
+            "little extracted text and has large image"
+          ],
+          "text_chars": 93,
+          "text_nodes": 3,
+          "image_count": 3,
+          "largest_image_area": 66507.67,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile111.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile112.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile113.png"
+          ]
+        },
+        "42": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 138,
+          "text_nodes": 2,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "43": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 207,
+          "text_nodes": 4,
+          "image_count": 3,
+          "largest_image_area": 51336.0,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile116.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile117.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile118.png"
+          ]
+        },
+        "44": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 300,
+          "text_nodes": 7,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "45": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 185,
+          "text_nodes": 6,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "46": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 389,
+          "text_nodes": 5,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "47": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 163,
+          "text_nodes": 12,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "48": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 286,
+          "text_nodes": 28,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "49": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 196,
+          "text_nodes": 5,
+          "image_count": 2,
+          "largest_image_area": 26947.19,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile125.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile126.png"
+          ]
+        },
+        "50": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 208,
+          "text_nodes": 41,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "51": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 260,
+          "text_nodes": 39,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "52": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 492,
+          "text_nodes": 53,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "53": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 305,
+          "text_nodes": 5,
+          "image_count": 1,
+          "largest_image_area": 31122.59,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile131.png"
+          ]
+        },
+        "54": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 248,
+          "text_nodes": 6,
+          "image_count": 2,
+          "largest_image_area": 47780.65,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile133.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile134.png"
+          ]
+        },
+        "55": {
+          "needs_ocr": true,
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars": 34,
+          "text_nodes": 1,
+          "image_count": 3,
+          "largest_image_area": 206986.47,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile136.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile137.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile138.png"
+          ]
+        },
+        "56": {
+          "needs_ocr": true,
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars": 4,
+          "text_nodes": 2,
+          "image_count": 2,
+          "largest_image_area": 6628.19,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile140.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile141.png"
+          ]
+        },
+        "57": {
+          "needs_ocr": true,
+          "reasons": [
+            "no extracted text but has image"
+          ],
+          "text_chars": 0,
+          "text_nodes": 0,
+          "image_count": 2,
+          "largest_image_area": 6628.19,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile142.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile143.png"
+          ]
+        },
+        "58": {
+          "needs_ocr": true,
+          "reasons": [
+            "no extracted text but has image"
+          ],
+          "text_chars": 0,
+          "text_nodes": 0,
+          "image_count": 3,
+          "largest_image_area": 6628.19,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile145.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile146.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile147.png"
+          ]
+        },
+        "59": {
+          "needs_ocr": true,
+          "reasons": [
+            "no extracted text but has image"
+          ],
+          "text_chars": 0,
+          "text_nodes": 0,
+          "image_count": 4,
+          "largest_image_area": 6628.19,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile149.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile150.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile151.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile152.png"
+          ]
+        },
+        "60": {
+          "needs_ocr": true,
+          "reasons": [
+            "no extracted text but has image"
+          ],
+          "text_chars": 0,
+          "text_nodes": 0,
+          "image_count": 5,
+          "largest_image_area": 6628.19,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile154.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile155.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile156.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile157.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile158.png"
+          ]
+        },
+        "61": {
+          "needs_ocr": true,
+          "reasons": [
+            "no extracted text but has image"
+          ],
+          "text_chars": 0,
+          "text_nodes": 0,
+          "image_count": 7,
+          "largest_image_area": 15489.04,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile160.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile161.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile162.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile163.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile164.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile165.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile166.png"
+          ]
+        },
+        "62": {
+          "needs_ocr": true,
+          "reasons": [
+            "little extracted text and has large image"
+          ],
+          "text_chars": 126,
+          "text_nodes": 4,
+          "image_count": 3,
+          "largest_image_area": 112944.24,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile168.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile169.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile170.png"
+          ]
+        },
+        "63": {
+          "needs_ocr": true,
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars": 14,
+          "text_nodes": 1,
+          "image_count": 2,
+          "largest_image_area": 128979.56,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile172.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile173.png"
+          ]
+        },
+        "64": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 466,
+          "text_nodes": 7,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "65": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 514,
+          "text_nodes": 4,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "66": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 183,
+          "text_nodes": 8,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "67": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 440,
+          "text_nodes": 6,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "68": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 394,
+          "text_nodes": 6,
+          "image_count": 2,
+          "largest_image_area": 72709.56,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile179.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile180.png"
+          ]
+        },
+        "69": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 112,
+          "text_nodes": 7,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "70": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 809,
+          "text_nodes": 10,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "71": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 366,
+          "text_nodes": 6,
+          "image_count": 1,
+          "largest_image_area": 29410.16,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile184.png"
+          ]
+        },
+        "72": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 537,
+          "text_nodes": 8,
+          "image_count": 2,
+          "largest_image_area": 127703.33,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile186.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile187.png"
+          ]
+        },
+        "73": {
+          "needs_ocr": true,
+          "reasons": [
+            "no extracted text but has image"
+          ],
+          "text_chars": 0,
+          "text_nodes": 0,
+          "image_count": 1,
+          "largest_image_area": 378591.85,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile189.png"
+          ]
+        },
+        "74": {
+          "needs_ocr": true,
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars": 50,
+          "text_nodes": 2,
+          "image_count": 4,
+          "largest_image_area": 22111.65,
+          "image_sources": [
+            "Week 2 - Language Modelling-CL-2026_images/imageFile191.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile192.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile193.png",
+            "Week 2 - Language Modelling-CL-2026_images/imageFile194.png"
+          ]
+        }
+      }
+    },
+    "Week 3 - Sequence Labelling-CL": {
+      "source_json": "D:\\Leetcode\\PDF-summarize\\PDF_Output\\raw\\Week 3 - Sequence Labelling-CL.json",
+      "source_pdf": "Week 3 - Sequence Labelling-CL.pdf",
+      "page_count": 74,
+      "needs_ocr_pages": [
+        1,
+        59,
+        67,
+        74
+      ],
+      "needs_ocr_page_count": 4,
+      "pages": {
+        "1": {
+          "needs_ocr": true,
+          "reasons": [
+            "little extracted text and has large image"
+          ],
+          "text_chars": 137,
+          "text_nodes": 5,
+          "image_count": 1,
+          "largest_image_area": 128158.2,
+          "image_sources": [
+            "Week 3 - Sequence Labelling-CL_images/imageFile1.png"
+          ]
+        },
+        "2": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 225,
+          "text_nodes": 9,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "3": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 374,
+          "text_nodes": 5,
+          "image_count": 1,
+          "largest_image_area": 41100.74,
+          "image_sources": [
+            "Week 3 - Sequence Labelling-CL_images/imageFile2.png"
+          ]
+        },
+        "4": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 407,
+          "text_nodes": 7,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "5": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 322,
+          "text_nodes": 25,
+          "image_count": 3,
+          "largest_image_area": 223078.02,
+          "image_sources": [
+            "Week 3 - Sequence Labelling-CL_images/imageFile3.png",
+            "Week 3 - Sequence Labelling-CL_images/imageFile4.png",
+            "Week 3 - Sequence Labelling-CL_images/imageFile5.png"
+          ]
+        },
+        "6": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 225,
+          "text_nodes": 9,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "7": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 276,
+          "text_nodes": 5,
+          "image_count": 1,
+          "largest_image_area": 70535.96,
+          "image_sources": [
+            "Week 3 - Sequence Labelling-CL_images/imageFile6.png"
+          ]
+        },
+        "8": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 928,
+          "text_nodes": 30,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "9": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 251,
+          "text_nodes": 6,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "10": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 239,
+          "text_nodes": 6,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "11": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 385,
+          "text_nodes": 6,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "12": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 510,
+          "text_nodes": 10,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "13": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 251,
+          "text_nodes": 5,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "14": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 531,
+          "text_nodes": 6,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "15": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 632,
+          "text_nodes": 7,
+          "image_count": 2,
+          "largest_image_area": 49131.43,
+          "image_sources": [
+            "Week 3 - Sequence Labelling-CL_images/imageFile7.png",
+            "Week 3 - Sequence Labelling-CL_images/imageFile8.png"
+          ]
+        },
+        "16": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 504,
+          "text_nodes": 8,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "17": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 377,
+          "text_nodes": 4,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "18": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 225,
+          "text_nodes": 9,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "19": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 248,
+          "text_nodes": 4,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "20": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 521,
+          "text_nodes": 7,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "21": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 284,
+          "text_nodes": 7,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "22": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 279,
+          "text_nodes": 5,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "23": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 225,
+          "text_nodes": 9,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "24": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 210,
+          "text_nodes": 4,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "25": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 279,
+          "text_nodes": 14,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "26": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 539,
+          "text_nodes": 17,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "27": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 428,
+          "text_nodes": 16,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "28": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 415,
+          "text_nodes": 6,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "29": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 414,
+          "text_nodes": 6,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "30": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 181,
+          "text_nodes": 34,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "31": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 127,
+          "text_nodes": 27,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "32": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 123,
+          "text_nodes": 26,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "33": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 132,
+          "text_nodes": 27,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "34": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 132,
+          "text_nodes": 27,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "35": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 136,
+          "text_nodes": 27,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "36": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 136,
+          "text_nodes": 27,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "37": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 140,
+          "text_nodes": 27,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "38": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 140,
+          "text_nodes": 27,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "39": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 146,
+          "text_nodes": 27,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "40": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 146,
+          "text_nodes": 27,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "41": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 543,
+          "text_nodes": 9,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "42": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 360,
+          "text_nodes": 7,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "43": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 255,
+          "text_nodes": 4,
+          "image_count": 1,
+          "largest_image_area": 54682.48,
+          "image_sources": [
+            "Week 3 - Sequence Labelling-CL_images/imageFile9.png"
+          ]
+        },
+        "44": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 226,
+          "text_nodes": 9,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "45": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 327,
+          "text_nodes": 6,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "46": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 386,
+          "text_nodes": 9,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "47": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 290,
+          "text_nodes": 12,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "48": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 439,
+          "text_nodes": 8,
+          "image_count": 1,
+          "largest_image_area": 52397.59,
+          "image_sources": [
+            "Week 3 - Sequence Labelling-CL_images/imageFile10.png"
+          ]
+        },
+        "49": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 435,
+          "text_nodes": 6,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "50": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 196,
+          "text_nodes": 25,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "51": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 463,
+          "text_nodes": 9,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "52": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 362,
+          "text_nodes": 18,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "53": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 218,
+          "text_nodes": 25,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "54": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 325,
+          "text_nodes": 59,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "55": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 320,
+          "text_nodes": 58,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "56": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 332,
+          "text_nodes": 70,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "57": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 137,
+          "text_nodes": 19,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "58": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 161,
+          "text_nodes": 25,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "59": {
+          "needs_ocr": true,
+          "reasons": [
+            "no extracted text but has image"
+          ],
+          "text_chars": 0,
+          "text_nodes": 0,
+          "image_count": 1,
+          "largest_image_area": 386764.8,
+          "image_sources": [
+            "Week 3 - Sequence Labelling-CL_images/imageFile11.png"
+          ]
+        },
+        "60": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 352,
+          "text_nodes": 5,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "61": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 225,
+          "text_nodes": 9,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "62": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 430,
+          "text_nodes": 6,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "63": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 480,
+          "text_nodes": 13,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "64": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 270,
+          "text_nodes": 21,
+          "image_count": 1,
+          "largest_image_area": 43888.41,
+          "image_sources": [
+            "Week 3 - Sequence Labelling-CL_images/imageFile12.png"
+          ]
+        },
+        "65": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 317,
+          "text_nodes": 21,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "66": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 89,
+          "text_nodes": 18,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "67": {
+          "needs_ocr": true,
+          "reasons": [
+            "little extracted text and has large image"
+          ],
+          "text_chars": 128,
+          "text_nodes": 17,
+          "image_count": 1,
+          "largest_image_area": 371616.0,
+          "image_sources": [
+            "Week 3 - Sequence Labelling-CL_images/imageFile13.png"
+          ]
+        },
+        "68": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 225,
+          "text_nodes": 9,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "69": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 519,
+          "text_nodes": 5,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "70": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 419,
+          "text_nodes": 13,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "71": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 513,
+          "text_nodes": 27,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "72": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 225,
+          "text_nodes": 9,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "73": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 411,
+          "text_nodes": 5,
+          "image_count": 1,
+          "largest_image_area": 38592.27,
+          "image_sources": [
+            "Week 3 - Sequence Labelling-CL_images/imageFile14.png"
+          ]
+        },
+        "74": {
+          "needs_ocr": true,
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars": 50,
+          "text_nodes": 2,
+          "image_count": 5,
+          "largest_image_area": 22111.65,
+          "image_sources": [
+            "Week 3 - Sequence Labelling-CL_images/imageFile15.png",
+            "Week 3 - Sequence Labelling-CL_images/imageFile16.png",
+            "Week 3 - Sequence Labelling-CL_images/imageFile17.png",
+            "Week 3 - Sequence Labelling-CL_images/imageFile18.png",
+            "Week 3 - Sequence Labelling-CL_images/imageFile19.png"
+          ]
+        }
+      }
+    },
+    "Week4-SyntacticParsing-CL": {
+      "source_json": "D:\\Leetcode\\PDF-summarize\\PDF_Output\\raw\\Week4-SyntacticParsing-CL.json",
+      "source_pdf": "Week4-SyntacticParsing-CL.pdf",
+      "page_count": 118,
+      "needs_ocr_pages": [
+        10,
+        109,
+        117,
+        118
+      ],
+      "needs_ocr_page_count": 4,
+      "pages": {
+        "1": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 188,
+          "text_nodes": 5,
+          "image_count": 1,
+          "largest_image_area": 128158.2,
+          "image_sources": [
+            "Week4-SyntacticParsing-CL_images/imageFile1.png"
+          ]
+        },
+        "2": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 346,
+          "text_nodes": 10,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "3": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 329,
+          "text_nodes": 9,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "4": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 203,
+          "text_nodes": 11,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "5": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 295,
+          "text_nodes": 5,
+          "image_count": 1,
+          "largest_image_area": 52651.15,
+          "image_sources": [
+            "Week4-SyntacticParsing-CL_images/imageFile5.png"
+          ]
+        },
+        "6": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 293,
+          "text_nodes": 4,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "7": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 399,
+          "text_nodes": 10,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "8": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 482,
+          "text_nodes": 8,
+          "image_count": 1,
+          "largest_image_area": 20827.22,
+          "image_sources": [
+            "Week4-SyntacticParsing-CL_images/imageFile9.png"
+          ]
+        },
+        "9": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 203,
+          "text_nodes": 11,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "10": {
+          "needs_ocr": true,
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars": 75,
+          "text_nodes": 2,
+          "image_count": 1,
+          "largest_image_area": 154295.94,
+          "image_sources": [
+            "Week4-SyntacticParsing-CL_images/imageFile12.png"
+          ]
+        },
+        "11": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 428,
+          "text_nodes": 10,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "12": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 310,
+          "text_nodes": 4,
+          "image_count": 2,
+          "largest_image_area": 88151.0,
+          "image_sources": [
+            "Week4-SyntacticParsing-CL_images/imageFile15.png",
+            "Week4-SyntacticParsing-CL_images/imageFile16.png"
+          ]
+        },
+        "13": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 401,
+          "text_nodes": 10,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "14": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 644,
+          "text_nodes": 21,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "15": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 410,
+          "text_nodes": 7,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "16": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 466,
+          "text_nodes": 15,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "17": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 356,
+          "text_nodes": 7,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "18": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 361,
+          "text_nodes": 9,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "19": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 359,
+          "text_nodes": 7,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "20": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 364,
+          "text_nodes": 9,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "21": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 360,
+          "text_nodes": 7,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "22": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 365,
+          "text_nodes": 9,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "23": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 353,
+          "text_nodes": 6,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "24": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 358,
+          "text_nodes": 8,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "25": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 346,
+          "text_nodes": 6,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "26": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 350,
+          "text_nodes": 7,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "27": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 354,
+          "text_nodes": 8,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "28": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 359,
+          "text_nodes": 10,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "29": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 353,
+          "text_nodes": 7,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "30": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 357,
+          "text_nodes": 8,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "31": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 365,
+          "text_nodes": 8,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "32": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 370,
+          "text_nodes": 10,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "33": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 368,
+          "text_nodes": 8,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "34": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 373,
+          "text_nodes": 10,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "35": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 369,
+          "text_nodes": 8,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "36": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 373,
+          "text_nodes": 9,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "37": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 378,
+          "text_nodes": 9,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "38": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 418,
+          "text_nodes": 12,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "39": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 360,
+          "text_nodes": 6,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "40": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 364,
+          "text_nodes": 7,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "41": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 371,
+          "text_nodes": 8,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "42": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 383,
+          "text_nodes": 9,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "43": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 384,
+          "text_nodes": 10,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "44": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 381,
+          "text_nodes": 9,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "45": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 385,
+          "text_nodes": 9,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "46": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 394,
+          "text_nodes": 11,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "47": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 397,
+          "text_nodes": 13,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "48": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 397,
+          "text_nodes": 13,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "49": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 400,
+          "text_nodes": 15,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "50": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 401,
+          "text_nodes": 16,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "51": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 398,
+          "text_nodes": 14,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "52": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 380,
+          "text_nodes": 11,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "53": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 381,
+          "text_nodes": 13,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "54": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 382,
+          "text_nodes": 14,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "55": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 383,
+          "text_nodes": 15,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "56": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 385,
+          "text_nodes": 15,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "57": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 386,
+          "text_nodes": 16,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "58": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 383,
+          "text_nodes": 14,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "59": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 381,
+          "text_nodes": 13,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "60": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 382,
+          "text_nodes": 14,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "61": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 412,
+          "text_nodes": 6,
+          "image_count": 2,
+          "largest_image_area": 32367.88,
+          "image_sources": [
+            "Week4-SyntacticParsing-CL_images/imageFile66.png",
+            "Week4-SyntacticParsing-CL_images/imageFile67.png"
+          ]
+        },
+        "62": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 203,
+          "text_nodes": 11,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "63": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 376,
+          "text_nodes": 4,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "64": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 363,
+          "text_nodes": 5,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "65": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 360,
+          "text_nodes": 10,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "66": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 451,
+          "text_nodes": 10,
+          "image_count": 2,
+          "largest_image_area": 27230.84,
+          "image_sources": [
+            "Week4-SyntacticParsing-CL_images/imageFile73.png",
+            "Week4-SyntacticParsing-CL_images/imageFile74.png"
+          ]
+        },
+        "67": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 500,
+          "text_nodes": 10,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "68": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 536,
+          "text_nodes": 12,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "69": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 343,
+          "text_nodes": 16,
+          "image_count": 2,
+          "largest_image_area": 100084.36,
+          "image_sources": [
+            "Week4-SyntacticParsing-CL_images/imageFile78.png",
+            "Week4-SyntacticParsing-CL_images/imageFile79.png"
+          ]
+        },
+        "70": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 290,
+          "text_nodes": 14,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "71": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 273,
+          "text_nodes": 16,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "72": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 295,
+          "text_nodes": 17,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "73": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 292,
+          "text_nodes": 18,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "74": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 307,
+          "text_nodes": 19,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "75": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 321,
+          "text_nodes": 21,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "76": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 421,
+          "text_nodes": 25,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "77": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 329,
+          "text_nodes": 21,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "78": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 268,
+          "text_nodes": 5,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "79": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 203,
+          "text_nodes": 11,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "80": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 158,
+          "text_nodes": 4,
+          "image_count": 1,
+          "largest_image_area": 75962.28,
+          "image_sources": [
+            "Week4-SyntacticParsing-CL_images/imageFile91.png"
+          ]
+        },
+        "81": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 293,
+          "text_nodes": 4,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "82": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 369,
+          "text_nodes": 4,
+          "image_count": 1,
+          "largest_image_area": 82551.95,
+          "image_sources": [
+            "Week4-SyntacticParsing-CL_images/imageFile94.png"
+          ]
+        },
+        "83": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 168,
+          "text_nodes": 3,
+          "image_count": 2,
+          "largest_image_area": 94724.4,
+          "image_sources": [
+            "Week4-SyntacticParsing-CL_images/imageFile96.png",
+            "Week4-SyntacticParsing-CL_images/imageFile97.png"
+          ]
+        },
+        "84": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 568,
+          "text_nodes": 29,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "85": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 297,
+          "text_nodes": 21,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "86": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 328,
+          "text_nodes": 24,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "87": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 175,
+          "text_nodes": 3,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "88": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 203,
+          "text_nodes": 11,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "89": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 218,
+          "text_nodes": 2,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "90": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 846,
+          "text_nodes": 41,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "91": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 493,
+          "text_nodes": 23,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "92": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 554,
+          "text_nodes": 29,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "93": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 703,
+          "text_nodes": 39,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "94": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 714,
+          "text_nodes": 41,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "95": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 753,
+          "text_nodes": 43,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "96": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 394,
+          "text_nodes": 35,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "97": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 203,
+          "text_nodes": 11,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "98": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 471,
+          "text_nodes": 20,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "99": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 460,
+          "text_nodes": 6,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "100": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 268,
+          "text_nodes": 9,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "101": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 270,
+          "text_nodes": 14,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "102": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 221,
+          "text_nodes": 3,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "103": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 203,
+          "text_nodes": 11,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "104": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 338,
+          "text_nodes": 6,
+          "image_count": 2,
+          "largest_image_area": 19931.99,
+          "image_sources": [
+            "Week4-SyntacticParsing-CL_images/imageFile118.png",
+            "Week4-SyntacticParsing-CL_images/imageFile119.png"
+          ]
+        },
+        "105": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 328,
+          "text_nodes": 7,
+          "image_count": 1,
+          "largest_image_area": 63202.67,
+          "image_sources": [
+            "Week4-SyntacticParsing-CL_images/imageFile121.png"
+          ]
+        },
+        "106": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 347,
+          "text_nodes": 24,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "107": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 203,
+          "text_nodes": 11,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "108": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 519,
+          "text_nodes": 6,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "109": {
+          "needs_ocr": true,
+          "reasons": [
+            "little extracted text and has large image"
+          ],
+          "text_chars": 149,
+          "text_nodes": 2,
+          "image_count": 1,
+          "largest_image_area": 176455.23,
+          "image_sources": [
+            "Week4-SyntacticParsing-CL_images/imageFile126.png"
+          ]
+        },
+        "110": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 462,
+          "text_nodes": 27,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "111": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 195,
+          "text_nodes": 10,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "112": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 298,
+          "text_nodes": 18,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "113": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 195,
+          "text_nodes": 10,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "114": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 524,
+          "text_nodes": 6,
+          "image_count": 0,
+          "largest_image_area": 0,
+          "image_sources": []
+        },
+        "115": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 468,
+          "text_nodes": 6,
+          "image_count": 2,
+          "largest_image_area": 85784.18,
+          "image_sources": [
+            "Week4-SyntacticParsing-CL_images/imageFile133.png",
+            "Week4-SyntacticParsing-CL_images/imageFile134.png"
+          ]
+        },
+        "116": {
+          "needs_ocr": false,
+          "reasons": [],
+          "text_chars": 653,
+          "text_nodes": 6,
+          "image_count": 1,
+          "largest_image_area": 74817.16,
+          "image_sources": [
+            "Week4-SyntacticParsing-CL_images/imageFile136.png"
+          ]
+        },
+        "117": {
+          "needs_ocr": true,
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars": 78,
+          "text_nodes": 3,
+          "image_count": 3,
+          "largest_image_area": 86403.37,
+          "image_sources": [
+            "Week4-SyntacticParsing-CL_images/imageFile138.png",
+            "Week4-SyntacticParsing-CL_images/imageFile139.png",
+            "Week4-SyntacticParsing-CL_images/imageFile140.png"
+          ]
+        },
+        "118": {
+          "needs_ocr": true,
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars": 50,
+          "text_nodes": 2,
+          "image_count": 4,
+          "largest_image_area": 22111.65,
+          "image_sources": [
+            "Week4-SyntacticParsing-CL_images/imageFile142.png",
+            "Week4-SyntacticParsing-CL_images/imageFile143.png",
+            "Week4-SyntacticParsing-CL_images/imageFile144.png",
+            "Week4-SyntacticParsing-CL_images/imageFile145.png"
+          ]
+        }
+      }
+    }
+  }
+}

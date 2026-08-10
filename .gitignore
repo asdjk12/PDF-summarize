@@ -1,0 +1,12 @@
+.codex
+.agents
+__pycache__
+.serena
+.venv
+.vscode
+reference
+.pytest_cache
+tests
+PDF_Output/raw/Week 2 - Language Modelling-CL-2026_images/
+PDF_Output/raw/Week 3 - Sequence Labelling-CL_images/
+PDF_Output/raw/Week4-SyntacticParsing-CL_images/

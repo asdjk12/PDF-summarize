@@ -1,0 +1,3319 @@
+{
+  "source": "D:\\Leetcode\\PDF-summarize\\PDF_Output\\analysis\\baseline_analysis.json",
+  "document": {
+    "Week 2 - Language Modelling-CL-2026": {
+      "source_pdf": "Week 2 - Language Modelling-CL-2026.pdf",
+      "source_json": "D:\\Leetcode\\PDF-summarize\\PDF_Output\\raw\\Week 2 - Language Modelling-CL-2026.json",
+      "needs_ocr_pages": [
+        3,
+        6,
+        7,
+        10,
+        12,
+        13,
+        18,
+        19,
+        20,
+        21,
+        23,
+        24,
+        25,
+        32,
+        33,
+        34,
+        35,
+        38,
+        39,
+        41,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        73,
+        74
+      ],
+      "pages": {
+        "3": {
+          "reasons": [
+            "little extracted text and has large image"
+          ],
+          "text_chars_before_ocr": 110,
+          "image_count": 1,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile4.png",
+              "lines": [
+                {
+                  "text": "be your fear",
+                  "score": 0.9999820590019226
+                },
+                {
+                  "text": "before banish",
+                  "score": 0.9999926090240479
+                },
+                {
+                  "text": "it you can.",
+                  "score": 0.9865167737007141
+                },
+                {
+                  "text": "WHAT?!!",
+                  "score": 0.9998467564582825
+                }
+              ]
+            }
+          ]
+        },
+        "6": {
+          "reasons": [
+            "little extracted text and has large image"
+          ],
+          "text_chars_before_ocr": 132,
+          "image_count": 2,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile8.png",
+              "lines": [
+                {
+                  "text": "Goal: compute the probability of a sentence or",
+                  "score": 0.9999773502349854
+                },
+                {
+                  "text": "sequence of words W:",
+                  "score": 0.9998453259468079
+                },
+                {
+                  "text": "P(W) = P(W{1,W2,W_3},}W{4},W{5.._Wn)",
+                  "score": 0.7638236880302429
+                },
+                {
+                  "text": "Related task: probability of an upcoming word:",
+                  "score": 0.9921972751617432
+                },
+                {
+                  "text": "P(Ww5|W1,W₂,W₃,W4) or P(Wwn|W1,W{₂..Wn-1)",
+                  "score": 0.8028128743171692
+                },
+                {
+                  "text": "An LM computes either of these:",
+                  "score": 0.9999337792396545
+                },
+                {
+                  "text": "P(W) or P(wn}IWw{1,W{2._{n-1)",
+                  "score": 0.7581256628036499
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile9.png",
+              "lines": [
+                {
+                  "text": "P(Named must be your fear before banish it you can.)",
+                  "score": 0.9957249164581299
+                },
+                {
+                  "text": "K",
+                  "score": 0.2381759136915207
+                },
+                {
+                  "text": "P(Your fear must be named before you can banish it.)",
+                  "score": 0.9999870657920837
+                }
+              ]
+            }
+          ]
+        },
+        "7": {
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars_before_ocr": 54,
+          "image_count": 6,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile11.png",
+              "lines": [
+                {
+                  "text": "祖",
+                  "score": 0.9993371367454529
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile12.png",
+              "lines": [
+                {
+                  "text": "twitter",
+                  "score": 0.9999823570251465
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile13.png",
+              "lines": [
+                {
+                  "text": "reddit",
+                  "score": 0.9999852180480957
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile14.png",
+              "lines": [
+                {
+                  "text": "WSJ",
+                  "score": 0.9999666213989258
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile15.png",
+              "lines": [
+                {
+                  "text": "Times",
+                  "score": 0.997836709022522
+                },
+                {
+                  "text": "New York",
+                  "score": 0.976318359375
+                },
+                {
+                  "text": "The",
+                  "score": 0.9998895525932312
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile16.png",
+              "lines": [
+                {
+                  "text": "Common Crawl",
+                  "score": 0.9998912811279297
+                }
+              ]
+            }
+          ]
+        },
+        "10": {
+          "reasons": [
+            "little extracted text and has large image"
+          ],
+          "text_chars_before_ocr": 128,
+          "image_count": 2,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile21.png",
+              "lines": [
+                {
+                  "text": "Donald trump is a p",
+                  "score": 0.9997770190238953
+                },
+                {
+                  "text": "donald trump is a pokemon",
+                  "score": 0.9999005198478699
+                },
+                {
+                  "text": "donald trump is a potato",
+                  "score": 0.9932007789611816
+                },
+                {
+                  "text": "donald trump is a populist",
+                  "score": 0.9996408820152283
+                },
+                {
+                  "text": "donald trump is a politician",
+                  "score": 0.9994401931762695
+                },
+                {
+                  "text": "donald trump is a pragmatist",
+                  "score": 0.9997767806053162
+                },
+                {
+                  "text": "donald trump is a prophet",
+                  "score": 0.9999243021011353
+                },
+                {
+                  "text": "donald trump is a piece of garbage",
+                  "score": 0.9996161460876465
+                },
+                {
+                  "text": "donald trump is a pendejo",
+                  "score": 0.9811169505119324
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile22.png",
+              "lines": [
+                {
+                  "text": "广",
+                  "score": 0.4030853807926178
+                }
+              ]
+            }
+          ]
+        },
+        "12": {
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars_before_ocr": 79,
+          "image_count": 2,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile25.png",
+              "lines": [
+                {
+                  "text": "Q",
+                  "score": 0.9580475687980652
+                },
+                {
+                  "text": "donald trump is",
+                  "score": 0.9999767541885376
+                },
+                {
+                  "text": "Q",
+                  "score": 0.928677499294281
+                },
+                {
+                  "text": "donald trump is republican or democrat",
+                  "score": 0.9999184608459473
+                },
+                {
+                  "text": "Q",
+                  "score": 0.9398528933525085
+                },
+                {
+                  "text": "donald trump is the president of which country",
+                  "score": 0.9999741315841675
+                },
+                {
+                  "text": "o",
+                  "score": 0.695523738861084
+                },
+                {
+                  "text": "on   ic",
+                  "score": 0.7759561538696289
+                },
+                {
+                  "text": "o",
+                  "score": 0.6238470077514648
+                },
+                {
+                  "text": "donl can",
+                  "score": 0.9427131414413452
+                },
+                {
+                  "text": "o",
+                  "score": 0.47568127512931824
+                },
+                {
+                  "text": "on nt",
+                  "score": 0.6496391296386719
+                },
+                {
+                  "text": "Q",
+                  "score": 0.9452304244041443
+                },
+                {
+                  "text": "donald trump is alive",
+                  "score": 0.9998521208763123
+                },
+                {
+                  "text": "Q",
+                  "score": 0.9780069589614868
+                },
+                {
+                  "text": "donald trump is from which country",
+                  "score": 0.9999743103981018
+                },
+                {
+                  "text": "Q",
+                  "score": 0.9322183728218079
+                },
+                {
+                  "text": "donald trump is a convicted felon",
+                  "score": 0.9999485611915588
+                },
+                {
+                  "text": "Q",
+                  "score": 0.98915034532547
+                },
+                {
+                  "text": "donald trump is in the epstein files",
+                  "score": 0.9975122809410095
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile26.png",
+              "lines": [
+                {
+                  "text": "广",
+                  "score": 0.4030853807926178
+                }
+              ]
+            }
+          ]
+        },
+        "13": {
+          "reasons": [
+            "little extracted text and has large image"
+          ],
+          "text_chars_before_ocr": 82,
+          "image_count": 2,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile28.png",
+              "lines": [
+                {
+                  "text": "Donald trump is a p",
+                  "score": 0.9997770190238953
+                },
+                {
+                  "text": "donald trump is a pokemon",
+                  "score": 0.9999005198478699
+                },
+                {
+                  "text": "donald trump is a potato",
+                  "score": 0.9932007789611816
+                },
+                {
+                  "text": "donald trump is a populist",
+                  "score": 0.9996408820152283
+                },
+                {
+                  "text": "donald trump is a politician",
+                  "score": 0.9994401931762695
+                },
+                {
+                  "text": "donald trump is a pragmatist",
+                  "score": 0.9997767806053162
+                },
+                {
+                  "text": "donald trump is a prophet",
+                  "score": 0.9999243021011353
+                },
+                {
+                  "text": "donald trump is a piece of garbage",
+                  "score": 0.9996161460876465
+                },
+                {
+                  "text": "donald trump is a pendejo",
+                  "score": 0.9811169505119324
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile29.png",
+              "lines": [
+                {
+                  "text": "广",
+                  "score": 0.4030853807926178
+                }
+              ]
+            }
+          ]
+        },
+        "18": {
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars_before_ocr": 15,
+          "image_count": 2,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile35.png",
+              "lines": [
+                {
+                  "text": "Like kung fu... each move",
+                  "score": 0.9974192976951599
+                },
+                {
+                  "text": "depends on the previous one.",
+                  "score": 0.9999942779541016
+                },
+                {
+                  "text": "Sentence Probability Training",
+                  "score": 0.9999715685844421
+                },
+                {
+                  "text": "Step 1: P(w1)",
+                  "score": 0.9236828684806824
+                },
+                {
+                  "text": "Ohhh... that's",
+                  "score": 0.9637835621833801
+                },
+                {
+                  "text": "Step 2: P(w2 |w1)",
+                  "score": 0.9201973080635071
+                },
+                {
+                  "text": "the chain rule!",
+                  "score": 0.999995768070221
+                },
+                {
+                  "text": "Step 3: P(w3 | w1,w2)",
+                  "score": 0.8515604734420776
+                },
+                {
+                  "text": "Step 4: P(W4| w1,W2,w3)",
+                  "score": 0.906550943851471
+                },
+                {
+                  "text": "P(W1,W2,W3,Wa)=P(w1)×P(w2|w1)×P(W3|W1,w2,W3)",
+                  "score": 0.870198667049408
+                },
+                {
+                  "text": "P(W1,W2,w3,w4)=P(w1)×P(w2|w1)×P(W3|w1,w2)×P(w4|w1,w2,w3",
+                  "score": 0.9188627004623413
+                },
+                {
+                  "text": "N-gram language models: predicting the next word using previous words",
+                  "score": 0.9998264908790588
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile36.png",
+              "lines": [
+                {
+                  "text": "8E",
+                  "score": 0.3012116253376007
+                },
+                {
+                  "text": "P(A,B)",
+                  "score": 0.996876060962677
+                },
+                {
+                  "text": "P(A|B) =",
+                  "score": 0.9755982160568237
+                },
+                {
+                  "text": "P(A,B) = P(A|B)P(B)",
+                  "score": 0.9931656718254089
+                },
+                {
+                  "text": "P(B)",
+                  "score": 0.9996148347854614
+                }
+              ]
+            }
+          ]
+        },
+        "19": {
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars_before_ocr": 70,
+          "image_count": 6,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile38.png",
+              "lines": [
+                {
+                  "text": "P(A,B)",
+                  "score": 0.9966757297515869
+                },
+                {
+                  "text": "P(A|B) =",
+                  "score": 0.9940478801727295
+                },
+                {
+                  "text": "P(A, B) = P(A|B)P(B)",
+                  "score": 0.9508917927742004
+                },
+                {
+                  "text": "P(B)",
+                  "score": 0.9998114109039307
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile39.png",
+              "lines": [
+                {
+                  "text": "Let's apply it to P(wN)",
+                  "score": 0.9731690883636475
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile40.png",
+              "lines": [
+                {
+                  "text": "P(w1 , w , .., w N ) = P(wN |w1 , .., N−1)P(w1 , w2 , .., wN−1)",
+                  "score": 0.8772628307342529
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile41.png",
+              "lines": [
+                {
+                  "text": "= P(wN |w1 ,..., wN−1)P(wN−1|w1 ,..., wN−2)P(w1 , w2 ,..., wN−2)",
+                  "score": 0.9208869338035583
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile42.png",
+              "lines": [
+                {
+                  "text": "= P(wN |Ww1 ,..., wN−1)P(wN−1|w1 ,.., wN−2)P(wN−2|W1 ,..., wN−3)P(w1 , w2 ,...,wN−3)",
+                  "score": 0.9078531861305237
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile43.png",
+              "lines": [
+                {
+                  "text": "= P(wN |w1 ,..., wN−1)P(wN−1|w1 ..., wN−2)P(wN−2|w1 , ..., wN−3) .. (w2 |w1 )P(w1 )",
+                  "score": 0.9500605463981628
+                }
+              ]
+            }
+          ]
+        },
+        "20": {
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars_before_ocr": 27,
+          "image_count": 7,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile45.png",
+              "lines": [
+                {
+                  "text": "P(A,B)",
+                  "score": 0.9961331486701965
+                },
+                {
+                  "text": "P(A|B) =",
+                  "score": 0.9923403263092041
+                },
+                {
+                  "text": "P(A, B) = P(A|B)P(B)",
+                  "score": 0.9500868916511536
+                },
+                {
+                  "text": "P(B)",
+                  "score": 0.9992625117301941
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile46.png",
+              "lines": [
+                {
+                  "text": "Let's apply it to P(wN)",
+                  "score": 0.9731690883636475
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile47.png",
+              "lines": [
+                {
+                  "text": "P(w1 , w , .., w N ) = P(wN |w1 , .., wN−1)P(w1 , w2 , .., wN−1)",
+                  "score": 0.8803206086158752
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile48.png",
+              "lines": [
+                {
+                  "text": "= P(wN |w1 , ..., wN−1)P(wN−1|w1 , .., wN−2)P(w1 , w2 , ..., wN−2)",
+                  "score": 0.902519166469574
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile49.png",
+              "lines": [
+                {
+                  "text": "= P(wN |w1 ,..., wN−1)P(wN−1|w1 , .., wN−2)P(wN−2|W1 ,..., wN−3)P(w1 , w2 ,...,wN−3)",
+                  "score": 0.9075353741645813
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile50.png",
+              "lines": [
+                {
+                  "text": "P(w…ww…)w)",
+                  "score": 0.5897771120071411
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile51.png",
+              "lines": [
+                {
+                  "text": "this as:",
+                  "score": 0.9764137268066406
+                },
+                {
+                  "text": "N",
+                  "score": 0.9998888969421387
+                },
+                {
+                  "text": "P(wN) =",
+                  "score": 0.9733501076698303
+                },
+                {
+                  "text": "P(wi|wi−1)",
+                  "score": 0.9368227124214172
+                },
+                {
+                  "text": "i=1",
+                  "score": 0.9983717799186707
+                }
+              ]
+            }
+          ]
+        },
+        "21": {
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars_before_ocr": 24,
+          "image_count": 1,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile53.png",
+              "lines": [
+                {
+                  "text": "P(Named must be your fear before banish it you can . ) =",
+                  "score": 0.9915603399276733
+                },
+                {
+                  "text": "P(Named| −) × P(must|Named) × P(be|Named must) ×",
+                  "score": 0.9696507453918457
+                },
+                {
+                  "text": "P(your|Named must be) × P(fear|Named must be your) ×",
+                  "score": 0.9960851669311523
+                },
+                {
+                  "text": "P(before|Named must be your fear) × ... ×",
+                  "score": 0.9802611470222473
+                },
+                {
+                  "text": "P(. | Named must be your fear before banish it you can)",
+                  "score": 0.9909601807594299
+                }
+              ]
+            }
+          ]
+        },
+        "23": {
+          "reasons": [
+            "no extracted text but has image"
+          ],
+          "text_chars_before_ocr": 0,
+          "image_count": 3,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile56.png",
+              "lines": [
+                {
+                  "text": "Computing",
+                  "score": 0.9999977946281433
+                },
+                {
+                  "text": "P(w",
+                  "score": 0.9984715580940247
+                },
+                {
+                  "text": "N",
+                  "score": 0.999893069267273
+                },
+                {
+                  "text": "∏",
+                  "score": 0.5681532025337219
+                },
+                {
+                  "text": "N",
+                  "score": 0.9999316930770874
+                },
+                {
+                  "text": "P(wil",
+                  "score": 0.8960870504379272
+                },
+                {
+                  "text": "i-",
+                  "score": 0.7854219675064087
+                },
+                {
+                  "text": "二",
+                  "score": 0.8826824426651001
+                },
+                {
+                  "text": "W",
+                  "score": 0.9868484139442444
+                },
+                {
+                  "text": "1",
+                  "score": 0.9901096820831299
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile57.png",
+              "lines": [
+                {
+                  "text": "W",
+                  "score": 0.9445393681526184
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile58.png",
+              "lines": [
+                {
+                  "text": "n",
+                  "score": 0.9996681213378906
+                }
+              ]
+            }
+          ]
+        },
+        "24": {
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars_before_ocr": 47,
+          "image_count": 4,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile60.png",
+              "lines": [
+                {
+                  "text": "What does P(w|u) measure?",
+                  "score": 0.998979926109314
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile61.png",
+              "lines": [
+                {
+                  "text": "n",
+                  "score": 0.9997255206108093
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile62.png",
+              "lines": [
+                {
+                  "text": "W",
+                  "score": 0.9790195822715759
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile63.png",
+              "lines": [
+                {
+                  "text": "P(w|u) : multinomial distribution over the vocabulary indicating",
+                  "score": 0.9991030693054199
+                },
+                {
+                  "text": "how likely it is for each word to appear after the sequence u",
+                  "score": 0.9996808171272278
+                }
+              ]
+            }
+          ]
+        },
+        "25": {
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars_before_ocr": 40,
+          "image_count": 4,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile65.png",
+              "lines": [
+                {
+                  "text": "Computing P(w|u) - Maximum Likelihood Estimation",
+                  "score": 0.9991097450256348
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile66.png",
+              "lines": [
+                {
+                  "text": "count(Donald Trump is a)",
+                  "score": 0.999991238117218
+                },
+                {
+                  "text": "P(x= president | Donald Trump is a)=",
+                  "score": 0.9975077509880066
+                },
+                {
+                  "text": "",
+                  "score": 0.0
+                },
+                {
+                  "text": "nt(Donald Trump is a president)",
+                  "score": 0.9999666810035706
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile67.png",
+              "lines": [
+                {
+                  "text": "Times",
+                  "score": 0.9993511438369751
+                },
+                {
+                  "text": "New York",
+                  "score": 0.9873189926147461
+                },
+                {
+                  "text": "The",
+                  "score": 0.9994940757751465
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile68.png",
+              "lines": [
+                {
+                  "text": "C(uw)",
+                  "score": 0.9985960125923157
+                },
+                {
+                  "text": "P(w| u) =",
+                  "score": 0.9625470638275146
+                },
+                {
+                  "text": "C(u)",
+                  "score": 0.9980860352516174
+                }
+              ]
+            }
+          ]
+        },
+        "32": {
+          "reasons": [
+            "no extracted text but has image"
+          ],
+          "text_chars_before_ocr": 0,
+          "image_count": 1,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile87.png",
+              "lines": [
+                {
+                  "text": "N",
+                  "score": 0.9999561309814453
+                },
+                {
+                  "text": "N",
+                  "score": 0.9999555349349976
+                },
+                {
+                  "text": "P(w1",
+                  "score": 0.9419769048690796
+                },
+                {
+                  "text": "P(wil",
+                  "score": 0.9074036478996277
+                },
+                {
+                  "text": "i-1",
+                  "score": 0.907477080821991
+                },
+                {
+                  "text": "P(wi|w",
+                  "score": 0.8897218704223633
+                },
+                {
+                  "text": "i-1",
+                  "score": 0.9762039184570312
+                },
+                {
+                  "text": "二",
+                  "score": 0.6979207396507263
+                },
+                {
+                  "text": "≈",
+                  "score": 0.39565837383270264
+                },
+                {
+                  "text": "1",
+                  "score": 0.9593914747238159
+                },
+                {
+                  "text": "1",
+                  "score": 0.9999833106994629
+                },
+                {
+                  "text": "i=1",
+                  "score": 0.9983006119728088
+                },
+                {
+                  "text": "i=1",
+                  "score": 0.9981845021247864
+                }
+              ]
+            }
+          ]
+        },
+        "33": {
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars_before_ocr": 16,
+          "image_count": 1,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile90.png",
+              "lines": [
+                {
+                  "text": "P(Named| −) *",
+                  "score": 0.9455783367156982
+                },
+                {
+                  "text": "P(must| −)",
+                  "score": 0.8544187545776367
+                },
+                {
+                  "text": "P(be|−) *",
+                  "score": 0.9588898420333862
+                },
+                {
+                  "text": "P(your|−) *",
+                  "score": 0.9623193144798279
+                },
+                {
+                  "text": "P(fear|−) *",
+                  "score": 0.9376707077026367
+                },
+                {
+                  "text": "P(before|—)",
+                  "score": 0.9094049334526062
+                },
+                {
+                  "text": "*",
+                  "score": 0.9977490305900574
+                },
+                {
+                  "text": "P(.|-)",
+                  "score": 0.8085341453552246
+                }
+              ]
+            }
+          ]
+        },
+        "34": {
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars_before_ocr": 33,
+          "image_count": 2,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile93.png",
+              "lines": [
+                {
+                  "text": "P(Named| −) *",
+                  "score": 0.9639289379119873
+                },
+                {
+                  "text": "P(Nam",
+                  "score": 0.9997025728225708
+                },
+                {
+                  "text": "P(must|-)",
+                  "score": 0.8668674826622009
+                },
+                {
+                  "text": "P(mus",
+                  "score": 0.9998809099197388
+                },
+                {
+                  "text": "*",
+                  "score": 0.9990155696868896
+                },
+                {
+                  "text": "P(be|−) *",
+                  "score": 0.9659023284912109
+                },
+                {
+                  "text": "P(be|n",
+                  "score": 0.9859305024147034
+                },
+                {
+                  "text": "P(your|−) *",
+                  "score": 0.9668979644775391
+                },
+                {
+                  "text": "P(your",
+                  "score": 0.9999373555183411
+                },
+                {
+                  "text": "OR",
+                  "score": 0.9999170303344727
+                },
+                {
+                  "text": "P(fear|−) *",
+                  "score": 0.9321532845497131
+                },
+                {
+                  "text": "P(fear",
+                  "score": 0.9999769330024719
+                },
+                {
+                  "text": "P(before|-)",
+                  "score": 0.9149519205093384
+                },
+                {
+                  "text": "P(befo",
+                  "score": 0.9999588131904602
+                },
+                {
+                  "text": "*",
+                  "score": 0.9981397390365601
+                },
+                {
+                  "text": "*",
+                  "score": 0.9991081357002258
+                },
+                {
+                  "text": "P(.|-)",
+                  "score": 0.7966853976249695
+                },
+                {
+                  "text": "P(.|ca",
+                  "score": 0.9510498046875
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile94.png",
+              "lines": [
+                {
+                  "text": "P(Named| −) *",
+                  "score": 0.9646783471107483
+                },
+                {
+                  "text": "P(must|Named)",
+                  "score": 0.9991772770881653
+                },
+                {
+                  "text": "P(be|must) *",
+                  "score": 0.996826171875
+                },
+                {
+                  "text": "P(your|be) *",
+                  "score": 0.9757728576660156
+                },
+                {
+                  "text": "P(fear|your)",
+                  "score": 0.9991683959960938
+                },
+                {
+                  "text": "*",
+                  "score": 0.9978362917900085
+                },
+                {
+                  "text": "P(before|fear)",
+                  "score": 0.9990583658218384
+                },
+                {
+                  "text": "*",
+                  "score": 0.9973257780075073
+                },
+                {
+                  "text": "P(.|can)",
+                  "score": 0.9835397005081177
+                }
+              ]
+            }
+          ]
+        },
+        "35": {
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars_before_ocr": 52,
+          "image_count": 3,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile97.png",
+              "lines": [
+                {
+                  "text": "P(Named| −) *",
+                  "score": 0.9639289379119873
+                },
+                {
+                  "text": "P(Nam",
+                  "score": 0.9997025728225708
+                },
+                {
+                  "text": "P(must|-)",
+                  "score": 0.8668674826622009
+                },
+                {
+                  "text": "P(mus",
+                  "score": 0.9998809099197388
+                },
+                {
+                  "text": "*",
+                  "score": 0.9990155696868896
+                },
+                {
+                  "text": "P(be|−) *",
+                  "score": 0.9659023284912109
+                },
+                {
+                  "text": "P(be|n",
+                  "score": 0.9859305024147034
+                },
+                {
+                  "text": "P(your|−) *",
+                  "score": 0.9668979644775391
+                },
+                {
+                  "text": "P(your",
+                  "score": 0.9999373555183411
+                },
+                {
+                  "text": "OR",
+                  "score": 0.9999170303344727
+                },
+                {
+                  "text": "P(fear|−) *",
+                  "score": 0.9321532845497131
+                },
+                {
+                  "text": "P(fear",
+                  "score": 0.9999769330024719
+                },
+                {
+                  "text": "P(before|-)",
+                  "score": 0.9149519205093384
+                },
+                {
+                  "text": "P(befo",
+                  "score": 0.9999588131904602
+                },
+                {
+                  "text": "*",
+                  "score": 0.9981397390365601
+                },
+                {
+                  "text": "*",
+                  "score": 0.9991081357002258
+                },
+                {
+                  "text": "P(.|-)",
+                  "score": 0.7966853976249695
+                },
+                {
+                  "text": "P(.|ca",
+                  "score": 0.9510498046875
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile98.png",
+              "lines": [
+                {
+                  "text": "P(Named| −) *",
+                  "score": 0.9646783471107483
+                },
+                {
+                  "text": "P(must|Named)",
+                  "score": 0.9991772770881653
+                },
+                {
+                  "text": "P(be|must) *",
+                  "score": 0.996826171875
+                },
+                {
+                  "text": "P(your|be) *",
+                  "score": 0.9757728576660156
+                },
+                {
+                  "text": "P(fear|your)",
+                  "score": 0.9991683959960938
+                },
+                {
+                  "text": "*",
+                  "score": 0.9978362917900085
+                },
+                {
+                  "text": "P(before|fear)",
+                  "score": 0.9990583658218384
+                },
+                {
+                  "text": "*",
+                  "score": 0.9973257780075073
+                },
+                {
+                  "text": "P(.|can)",
+                  "score": 0.9835397005081177
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile99.png",
+              "lines": [
+                {
+                  "text": "P(Named| −) *",
+                  "score": 0.9760971069335938
+                },
+                {
+                  "text": "P(must|Named)",
+                  "score": 0.9996058344841003
+                },
+                {
+                  "text": "P(be|Named must)",
+                  "score": 0.9991900324821472
+                },
+                {
+                  "text": "P(your|must be) *",
+                  "score": 0.9972068667411804
+                },
+                {
+                  "text": "P(fear|be your) *",
+                  "score": 0.9917115569114685
+                },
+                {
+                  "text": "P(before|your fear) *",
+                  "score": 0.9879988431930542
+                },
+                {
+                  "text": "*",
+                  "score": 0.9987109899520874
+                },
+                {
+                  "text": "P(. it can)",
+                  "score": 0.8762508630752563
+                }
+              ]
+            }
+          ]
+        },
+        "38": {
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars_before_ocr": 14,
+          "image_count": 2,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile105.png",
+              "lines": [
+                {
+                  "text": "• P(chased | dog)=0.5",
+                  "score": 0.9827989935874939
+                },
+                {
+                  "text": "• P(followed | dog) =0.5",
+                  "score": 0.9953415989875793
+                },
+                {
+                  "text": "• P(ate | dog) = 0.2",
+                  "score": 0.9834108352661133
+                },
+                {
+                  "text": "• P(cat | the) = 0.75",
+                  "score": 0.9976803660392761
+                },
+                {
+                  "text": "• P(dog | the) =0.25",
+                  "score": 0.9773680567741394
+                },
+                {
+                  "text": "• P(the) = 0.6",
+                  "score": 0.9702902436256409
+                },
+                {
+                  "text": "• P(cat)=0.1",
+                  "score": 0.9952659606933594
+                },
+                {
+                  "text": "• P(dog) = 0.05",
+                  "score": 0.994753897190094
+                },
+                {
+                  "text": "• P(ate) = 0.05",
+                  "score": 0.9976674318313599
+                },
+                {
+                  "text": "• P(chased) = 0.15",
+                  "score": 0.9993550181388855
+                },
+                {
+                  "text": "• P(followed) = 0.05",
+                  "score": 0.9803200960159302
+                },
+                {
+                  "text": "• P(the | chased) = 0.9",
+                  "score": 0.9985994100570679
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile106.png",
+              "lines": [
+                {
+                  "text": "P(chased the dog) > P(chased the cat)",
+                  "score": 0.9991695284843445
+                }
+              ]
+            }
+          ]
+        },
+        "39": {
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars_before_ocr": 44,
+          "image_count": 1,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile108.png",
+              "lines": [
+                {
+                  "text": "• P(chased | dog)=0.5",
+                  "score": 0.9827989935874939
+                },
+                {
+                  "text": "• P(followed | dog) =0.5",
+                  "score": 0.9953415989875793
+                },
+                {
+                  "text": "• P(ate | dog) = 0.2",
+                  "score": 0.9834108352661133
+                },
+                {
+                  "text": "• P(cat | the) = 0.75",
+                  "score": 0.9976803660392761
+                },
+                {
+                  "text": "• P(dog | the) =0.25",
+                  "score": 0.9773680567741394
+                },
+                {
+                  "text": "• P(the) = 0.6",
+                  "score": 0.9702902436256409
+                },
+                {
+                  "text": "• P(cat)=0.1",
+                  "score": 0.9952659606933594
+                },
+                {
+                  "text": "• P(dog) = 0.05",
+                  "score": 0.994753897190094
+                },
+                {
+                  "text": "• P(ate) = 0.05",
+                  "score": 0.9976674318313599
+                },
+                {
+                  "text": "• P(chased) = 0.15",
+                  "score": 0.9993550181388855
+                },
+                {
+                  "text": "• P(followed) = 0.05",
+                  "score": 0.9803200960159302
+                },
+                {
+                  "text": "• P(the | chased) = 0.9",
+                  "score": 0.9985994100570679
+                }
+              ]
+            }
+          ]
+        },
+        "41": {
+          "reasons": [
+            "little extracted text and has large image"
+          ],
+          "text_chars_before_ocr": 93,
+          "image_count": 3,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile111.png",
+              "lines": [
+                {
+                  "text": "count(Donald Trump is a)",
+                  "score": 0.9999886155128479
+                },
+                {
+                  "text": "P(x= president | Donald Trump is a)=",
+                  "score": 0.9994555711746216
+                },
+                {
+                  "text": "count(Donald Trump is a president)",
+                  "score": 0.9999563694000244
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile112.png",
+              "lines": [
+                {
+                  "text": "count(Donald Trump is a president) = 0",
+                  "score": 0.9895361065864563
+                },
+                {
+                  "text": "count(Trump is a president) = 100",
+                  "score": 0.9997552633285522
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile113.png",
+              "lines": [
+                {
+                  "text": "Does it mean P(x= president | Donald Trump is a) should be 0?",
+                  "score": 0.9949758648872375
+                }
+              ]
+            }
+          ]
+        },
+        "55": {
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars_before_ocr": 34,
+          "image_count": 3,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile136.png",
+              "lines": [
+                {
+                  "text": "count(Donald Trump is a president)",
+                  "score": 0.9999781250953674
+                },
+                {
+                  "text": "P(x= president | Donald Trump is a)=",
+                  "score": 0.9954335689544678
+                },
+                {
+                  "text": "count(Donald Trump is a)",
+                  "score": 0.9999806880950928
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile137.png",
+              "lines": [
+                {
+                  "text": "count(Donald Trump is a president) = 0",
+                  "score": 0.9998506307601929
+                },
+                {
+                  "text": "count(Trump is a president) = 100",
+                  "score": 0.9872378706932068
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile138.png",
+              "lines": [
+                {
+                  "text": "Intuition:",
+                  "score": 0.9999269247055054
+                },
+                {
+                  "text": "P(president|Donald Trump is a) ≈ P(president|Trump is a)",
+                  "score": 0.9960581064224243
+                },
+                {
+                  "text": "Basic Backoff Solution (γ ∈ [0, I]):",
+                  "score": 0.9753497242927551
+                },
+                {
+                  "text": "γP(president|Donald Trump is a)+(1− γ) P(president|Trump is a)",
+                  "score": 0.9832412600517273
+                }
+              ]
+            }
+          ]
+        },
+        "56": {
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars_before_ocr": 4,
+          "image_count": 2,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile140.png",
+              "lines": [
+                {
+                  "text": "↑P",
+                  "score": 0.9189666509628296
+                },
+                {
+                  "text": "Donald Trump is a",
+                  "score": 0.9998092651367188
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile141.png",
+              "lines": [
+                {
+                  "text": "图",
+                  "score": 0.2782941162586212
+                },
+                {
+                  "text": "MONASH",
+                  "score": 0.9965735077857971
+                },
+                {
+                  "text": "University",
+                  "score": 0.9999192357063293
+                }
+              ]
+            }
+          ]
+        },
+        "57": {
+          "reasons": [
+            "no extracted text but has image"
+          ],
+          "text_chars_before_ocr": 0,
+          "image_count": 2,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile142.png",
+              "lines": [
+                {
+                  "text": "Trump is a",
+                  "score": 0.981397271156311
+                },
+                {
+                  "text": "↑P",
+                  "score": 0.9598454236984253
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile143.png",
+              "lines": [
+                {
+                  "text": "↑P",
+                  "score": 0.9189666509628296
+                },
+                {
+                  "text": "Donald Trump is a",
+                  "score": 0.9998092651367188
+                }
+              ]
+            }
+          ]
+        },
+        "58": {
+          "reasons": [
+            "no extracted text but has image"
+          ],
+          "text_chars_before_ocr": 0,
+          "image_count": 3,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile145.png",
+              "lines": [
+                {
+                  "text": "↑P",
+                  "score": 0.8981152772903442
+                },
+                {
+                  "text": "is",
+                  "score": 0.9995335936546326
+                },
+                {
+                  "text": "a",
+                  "score": 0.9813888669013977
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile146.png",
+              "lines": [
+                {
+                  "text": "Trump is a",
+                  "score": 0.981397271156311
+                },
+                {
+                  "text": "↑P",
+                  "score": 0.9598454236984253
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile147.png",
+              "lines": [
+                {
+                  "text": "↑P",
+                  "score": 0.9189666509628296
+                },
+                {
+                  "text": "Donald Trump is a",
+                  "score": 0.9998092651367188
+                }
+              ]
+            }
+          ]
+        },
+        "59": {
+          "reasons": [
+            "no extracted text but has image"
+          ],
+          "text_chars_before_ocr": 0,
+          "image_count": 4,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile149.png",
+              "lines": [
+                {
+                  "text": "↑P",
+                  "score": 0.926384449005127
+                },
+                {
+                  "text": "a",
+                  "score": 0.9940568208694458
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile150.png",
+              "lines": [
+                {
+                  "text": "↑P",
+                  "score": 0.8981152772903442
+                },
+                {
+                  "text": "is",
+                  "score": 0.9995335936546326
+                },
+                {
+                  "text": "a",
+                  "score": 0.9813888669013977
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile151.png",
+              "lines": [
+                {
+                  "text": "Trump is a",
+                  "score": 0.981397271156311
+                },
+                {
+                  "text": "↑P",
+                  "score": 0.9598454236984253
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile152.png",
+              "lines": [
+                {
+                  "text": "↑P",
+                  "score": 0.9189666509628296
+                },
+                {
+                  "text": "Donald Trump is a",
+                  "score": 0.9998092651367188
+                }
+              ]
+            }
+          ]
+        },
+        "60": {
+          "reasons": [
+            "no extracted text but has image"
+          ],
+          "text_chars_before_ocr": 0,
+          "image_count": 5,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile154.png",
+              "lines": [
+                {
+                  "text": "↑P",
+                  "score": 0.9342933297157288
+                },
+                {
+                  "text": "ω",
+                  "score": 0.9987435936927795
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile155.png",
+              "lines": [
+                {
+                  "text": "↑P",
+                  "score": 0.926384449005127
+                },
+                {
+                  "text": "a",
+                  "score": 0.9940568208694458
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile156.png",
+              "lines": [
+                {
+                  "text": "↑P",
+                  "score": 0.8981152772903442
+                },
+                {
+                  "text": "is",
+                  "score": 0.9995335936546326
+                },
+                {
+                  "text": "a",
+                  "score": 0.9813888669013977
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile157.png",
+              "lines": [
+                {
+                  "text": "Trump is a",
+                  "score": 0.981397271156311
+                },
+                {
+                  "text": "↑P",
+                  "score": 0.9598454236984253
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile158.png",
+              "lines": [
+                {
+                  "text": "↑P",
+                  "score": 0.9189666509628296
+                },
+                {
+                  "text": "Donald Trump is a",
+                  "score": 0.9998092651367188
+                }
+              ]
+            }
+          ]
+        },
+        "61": {
+          "reasons": [
+            "no extracted text but has image"
+          ],
+          "text_chars_before_ocr": 0,
+          "image_count": 7,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile160.png",
+              "lines": [
+                {
+                  "text": "P: Uniform over vocab",
+                  "score": 0.9952508807182312
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile161.png",
+              "lines": [
+                {
+                  "text": "Pu : Multinomial over vocab",
+                  "score": 0.9742074608802795
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile162.png",
+              "lines": [
+                {
+                  "text": "↑P",
+                  "score": 0.9342933297157288
+                },
+                {
+                  "text": "ω",
+                  "score": 0.9987435936927795
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile163.png",
+              "lines": [
+                {
+                  "text": "↑P",
+                  "score": 0.926384449005127
+                },
+                {
+                  "text": "a",
+                  "score": 0.9940568208694458
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile164.png",
+              "lines": [
+                {
+                  "text": "↑P",
+                  "score": 0.8981152772903442
+                },
+                {
+                  "text": "is",
+                  "score": 0.9995335936546326
+                },
+                {
+                  "text": "a",
+                  "score": 0.9813888669013977
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile165.png",
+              "lines": [
+                {
+                  "text": "Trump is a",
+                  "score": 0.981397271156311
+                },
+                {
+                  "text": "↑P",
+                  "score": 0.9598454236984253
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile166.png",
+              "lines": [
+                {
+                  "text": "↑P",
+                  "score": 0.9189666509628296
+                },
+                {
+                  "text": "Donald Trump is a",
+                  "score": 0.9998092651367188
+                }
+              ]
+            }
+          ]
+        },
+        "62": {
+          "reasons": [
+            "little extracted text and has large image"
+          ],
+          "text_chars_before_ocr": 126,
+          "image_count": 3,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile168.png",
+              "lines": [
+                {
+                  "text": "his is an interpolation smoothing, and you can see the recursive form of it.",
+                  "score": 0.9937469363212585
+                },
+                {
+                  "text": "c(uxw) −D3(c(uxw))",
+                  "score": 0.9578579664230347
+                },
+                {
+                  "text": "γ (ux•)",
+                  "score": 0.9585980772972107
+                },
+                {
+                  "text": "P(w|ux)",
+                  "score": 0.992053210735321
+                },
+                {
+                  "text": "P(w|x)",
+                  "score": 0.9971868395805359
+                },
+                {
+                  "text": "c(ux)",
+                  "score": 0.9994538426399231
+                },
+                {
+                  "text": "c(ux)",
+                  "score": 0.9992564916610718
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile169.png",
+              "lines": [
+                {
+                  "text": "",
+                  "score": 0.0
+                },
+                {
+                  "text": "N1+(•xw)−D2(N1+(•xw))",
+                  "score": 0.9339325428009033
+                },
+                {
+                  "text": "γ(x)",
+                  "score": 0.9934291243553162
+                },
+                {
+                  "text": "P(w|x) =",
+                  "score": 0.9349279403686523
+                },
+                {
+                  "text": "P(w|-)",
+                  "score": 0.8959822654724121
+                },
+                {
+                  "text": "十",
+                  "score": 0.9030145406723022
+                },
+                {
+                  "text": "N1+(•x•)",
+                  "score": 0.9337496757507324
+                },
+                {
+                  "text": "N1+(•x•)",
+                  "score": 0.9245315194129944
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile170.png",
+              "lines": [
+                {
+                  "text": "",
+                  "score": 0.0
+                },
+                {
+                  "text": "",
+                  "score": 0.0
+                },
+                {
+                  "text": "N₁+(•w)−D1(N₁+(•w))",
+                  "score": 0.9186768531799316
+                },
+                {
+                  "text": "γ(-)",
+                  "score": 0.894776463508606
+                },
+                {
+                  "text": "1",
+                  "score": 0.9999661445617676
+                },
+                {
+                  "text": "P(w-) =",
+                  "score": 0.8561221957206726
+                },
+                {
+                  "text": "十",
+                  "score": 0.9777408838272095
+                },
+                {
+                  "text": "*",
+                  "score": 0.9994286894798279
+                },
+                {
+                  "text": "N1+()",
+                  "score": 0.9039326906204224
+                },
+                {
+                  "text": "N1+()",
+                  "score": 0.9497748613357544
+                },
+                {
+                  "text": "|VOCAB|",
+                  "score": 0.9909486174583435
+                },
+                {
+                  "text": "Examinable",
+                  "score": 0.9943770170211792
+                }
+              ]
+            }
+          ]
+        },
+        "63": {
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars_before_ocr": 14,
+          "image_count": 2,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile172.png",
+              "lines": [
+                {
+                  "text": "We introduce a similar but simpler scheme,",
+                  "score": 0.9937889575958252
+                },
+                {
+                  "text": "named Stupid Backoff¹, that does not generate nor-",
+                  "score": 0.9931291341781616
+                },
+                {
+                  "text": "malized probabilities. The main difference is that",
+                  "score": 0.9994592070579529
+                },
+                {
+                  "text": "we don't apply any discounting and instead directly",
+                  "score": 0.993893027305603
+                },
+                {
+                  "text": "use the relative frequencies (S is used instead of",
+                  "score": 0.9995515942573547
+                },
+                {
+                  "text": "P to emphasize that these are not probabilities but",
+                  "score": 0.9998916387557983
+                },
+                {
+                  "text": "scores):",
+                  "score": 0.9999033212661743
+                },
+                {
+                  "text": "S(wi|wi−k+1) =",
+                  "score": 0.9748159646987915
+                },
+                {
+                  "text": "f(wi−k+1)",
+                  "score": 0.9735250473022461
+                },
+                {
+                  "text": "if f(wi−k+1) > 0",
+                  "score": 0.9510766863822937
+                },
+                {
+                  "text": "f(wi−k+1)",
+                  "score": 0.9954769611358643
+                },
+                {
+                  "text": "(5)",
+                  "score": 0.999744713306427
+                },
+                {
+                  "text": "otherwise",
+                  "score": 0.9999974370002747
+                },
+                {
+                  "text": "1The name originated at a time when we thought that such",
+                  "score": 0.98963463306427
+                },
+                {
+                  "text": "a simple scheme cannot possibly be good. Our view of the",
+                  "score": 0.9968386888504028
+                },
+                {
+                  "text": "scheme changed, but the name stuck.",
+                  "score": 0.9998160004615784
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile173.png",
+              "lines": [
+                {
+                  "text": "Large Language Models in Machine Translation",
+                  "score": 0.9999881386756897
+                },
+                {
+                  "text": "Thorsten Brants",
+                  "score": 0.999920129776001
+                },
+                {
+                  "text": "Ashok C. Popat Peng Xu Franz J. Och Jeffrey Dean",
+                  "score": 0.9697259068489075
+                },
+                {
+                  "text": "Google, Inc.",
+                  "score": 0.9991375803947449
+                },
+                {
+                  "text": "1600 Amphitheatre Parkway",
+                  "score": 0.9998214840888977
+                },
+                {
+                  "text": "Mountain View, CA 94303, USA",
+                  "score": 0.9832834005355835
+                },
+                {
+                  "text": "{brants,popat,xp,och,jeff}@google.com",
+                  "score": 0.9914429187774658
+                }
+              ]
+            }
+          ]
+        },
+        "73": {
+          "reasons": [
+            "no extracted text but has image"
+          ],
+          "text_chars_before_ocr": 0,
+          "image_count": 1,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile189.png",
+              "lines": [
+                {
+                  "text": "Open topic for discussion",
+                  "score": 0.999976396560669
+                },
+                {
+                  "text": "• N-gram language models estimate the probability/frequency of a sequence based on observations in a",
+                  "score": 0.9958453178405762
+                },
+                {
+                  "text": "training corpus. This makes them a powerful lens for examining the issue of memorisation, data",
+                  "score": 0.9994540810585022
+                },
+                {
+                  "text": "contamination and copyright in large language models (LLMs).",
+                  "score": 0.9971641898155212
+                },
+                {
+                  "text": "LLMs have been shown to generate text containing verbatim snippets from copyrighted works present in",
+                  "score": 0.9992740750312805
+                },
+                {
+                  "text": "their training data.",
+                  "score": 0.9999737739562988
+                },
+                {
+                  "text": "If a model generates a passage that matches part of a copyrighted work, how long would the passage need",
+                  "score": 0.9999758005142212
+                },
+                {
+                  "text": "to be before we consider it plagiarism or copyright violation? Is length the right criterion?",
+                  "score": 0.9975539445877075
+                },
+                {
+                  "text": "Even if the wording is different, can reproducing the style, structure, or central idea of a work raise copyright",
+                  "score": 0.999941349029541
+                },
+                {
+                  "text": "concerns? Why or why not?",
+                  "score": 0.9998367428779602
+                },
+                {
+                  "text": "Recent studies have shown that benchmark datasets may overlap with model training data (data",
+                  "score": 0.9998108148574829
+                },
+                {
+                  "text": "contamination). How does this affect our interpretation of model performance and claims about",
+                  "score": 0.9999341368675232
+                },
+                {
+                  "text": "generalisation?",
+                  "score": 0.9999856352806091
+                },
+                {
+                  "text": "Use our Ed forum \"Social\" space and share your thoughts.",
+                  "score": 0.9992109537124634
+                }
+              ]
+            }
+          ]
+        },
+        "74": {
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars_before_ocr": 50,
+          "image_count": 4,
+          "images": [
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile191.png",
+              "lines": [
+                {
+                  "text": "** Please sub",
+                  "score": 0.973163366317749
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile192.png",
+              "lines": [
+                {
+                  "text": "uhmit weekly",
+                  "score": 0.9822909235954285
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile193.png",
+              "lines": [
+                {
+                  "text": "kly Feedback",
+                  "score": 0.9611784815788269
+                },
+                {
+                  "text": "#%!",
+                  "score": 0.8383021950721741
+                }
+              ]
+            },
+            {
+              "image": "Week 2 - Language Modelling-CL-2026_images/imageFile194.png",
+              "lines": []
+            }
+          ]
+        }
+      }
+    },
+    "Week 3 - Sequence Labelling-CL": {
+      "source_pdf": "Week 3 - Sequence Labelling-CL.pdf",
+      "source_json": "D:\\Leetcode\\PDF-summarize\\PDF_Output\\raw\\Week 3 - Sequence Labelling-CL.json",
+      "needs_ocr_pages": [
+        1,
+        59,
+        67,
+        74
+      ],
+      "pages": {
+        "1": {
+          "reasons": [
+            "little extracted text and has large image"
+          ],
+          "text_chars_before_ocr": 137,
+          "image_count": 1,
+          "images": [
+            {
+              "image": "Week 3 - Sequence Labelling-CL_images/imageFile1.png",
+              "lines": []
+            }
+          ]
+        },
+        "59": {
+          "reasons": [
+            "no extracted text but has image"
+          ],
+          "text_chars_before_ocr": 0,
+          "image_count": 1,
+          "images": [
+            {
+              "image": "Week 3 - Sequence Labelling-CL_images/imageFile11.png",
+              "lines": [
+                {
+                  "text": "bit",
+                  "score": 0.9998302459716797
+                },
+                {
+                  "text": "the",
+                  "score": 0.9999987483024597
+                },
+                {
+                  "text": "John",
+                  "score": 0.9999896287918091
+                },
+                {
+                  "text": "apple",
+                  "score": 0.999902606010437
+                },
+                {
+                  "text": "DET",
+                  "score": 0.9999578595161438
+                },
+                {
+                  "text": "DET",
+                  "score": 0.9996331334114075
+                },
+                {
+                  "text": "DET",
+                  "score": 0.9999499320983887
+                },
+                {
+                  "text": "0.95",
+                  "score": 0.999960720539093
+                },
+                {
+                  "text": "DET",
+                  "score": 0.9999287128448486
+                },
+                {
+                  "text": "0.95",
+                  "score": 0.999995231628418
+                },
+                {
+                  "text": "0.05",
+                  "score": 0.9999973773956299
+                },
+                {
+                  "text": "0.95",
+                  "score": 0.9999908208847046
+                },
+                {
+                  "text": "0.0012",
+                  "score": 0.9999814629554749
+                },
+                {
+                  "text": "0.052",
+                  "score": 0.9999936819076538
+                },
+                {
+                  "text": "0",
+                  "score": 0.9394680857658386
+                },
+                {
+                  "text": "0.5",
+                  "score": 0.999987781047821
+                },
+                {
+                  "text": "0.05",
+                  "score": 0.9999911189079285
+                },
+                {
+                  "text": "0.05",
+                  "score": 0.9999499320983887
+                },
+                {
+                  "text": "N",
+                  "score": 0.99906986951828
+                },
+                {
+                  "text": "N",
+                  "score": 0.9997372031211853
+                },
+                {
+                  "text": "N",
+                  "score": 0.9980588555335999
+                },
+                {
+                  "text": "N",
+                  "score": 0.9989432692527771
+                },
+                {
+                  "text": "0.1",
+                  "score": 0.9997416138648987
+                },
+                {
+                  "text": "0.9",
+                  "score": 0.999833881855011
+                },
+                {
+                  "text": "0.1",
+                  "score": 0.9995375275611877
+                },
+                {
+                  "text": "0.002375",
+                  "score": 0.9999809265136719
+                },
+                {
+                  "text": "5.7e-5",
+                  "score": 0.9998781085014343
+                },
+                {
+                  "text": "0.0346",
+                  "score": 0.9999837279319763
+                },
+                {
+                  "text": "<s>",
+                  "score": 0.8715524077415466
+                },
+                {
+                  "text": "0.4",
+                  "score": 0.9999456405639648
+                },
+                {
+                  "text": "0.9",
+                  "score": 0.9997889399528503
+                },
+                {
+                  "text": "</s>",
+                  "score": 0.9810220003128052
+                },
+                {
+                  "text": "0.1",
+                  "score": 0.999489963054657
+                },
+                {
+                  "text": "PN",
+                  "score": 0.9961915612220764
+                },
+                {
+                  "text": "PN",
+                  "score": 0.9978001713752747
+                },
+                {
+                  "text": "PN",
+                  "score": 0.9927130341529846
+                },
+                {
+                  "text": "PN",
+                  "score": 0.9981238842010498
+                },
+                {
+                  "text": "0.0346*0.1",
+                  "score": 0.999902606010437
+                },
+                {
+                  "text": "0.8",
+                  "score": 0.9999613761901855
+                },
+                {
+                  "text": "0.5",
+                  "score": 0.9999775886535645
+                },
+                {
+                  "text": "0.05",
+                  "score": 0.999977171421051
+                },
+                {
+                  "text": "+ 5.5e-6 * 0.1",
+                  "score": 0.9640174508094788
+                },
+                {
+                  "text": "0.3",
+                  "score": 0.9998661875724792
+                },
+                {
+                  "text": "0.1",
+                  "score": 0.999636173248291
+                },
+                {
+                  "text": "0.25",
+                  "score": 0.9999878406524658
+                },
+                {
+                  "text": "0",
+                  "score": 0.9513835906982422
+                },
+                {
+                  "text": "5.5e-6",
+                  "score": 0.9999071955680847
+                },
+                {
+                  "text": "0.25",
+                  "score": 0.9999909400939941
+                },
+                {
+                  "text": "+ 0.0001327 *0.5",
+                  "score": 0.9758300185203552
+                },
+                {
+                  "text": "= 0.003527",
+                  "score": 0.991202712059021
+                },
+                {
+                  "text": "0.25",
+                  "score": 0.999992311000824
+                },
+                {
+                  "text": "0.25",
+                  "score": 0.9999693632125854
+                },
+                {
+                  "text": "V",
+                  "score": 0.9442322254180908
+                },
+                {
+                  "text": "V",
+                  "score": 0.9070902466773987
+                },
+                {
+                  "text": "L",
+                  "score": 0.6030926704406738
+                },
+                {
+                  "text": "0.1 x 0 = 0",
+                  "score": 0.8277651071548462
+                },
+                {
+                  "text": "(0.05 × 0.05 +",
+                  "score": 0.9484418034553528
+                },
+                {
+                  "text": "(0.0012 × 0.05 +",
+                  "score": 0.9765263795852661
+                },
+                {
+                  "text": "(0.052 × 0.05 +",
+                  "score": 0.9942893385887146
+                },
+                {
+                  "text": "0.3 × 0.8) × 0.9",
+                  "score": 0.989923894405365
+                },
+                {
+                  "text": "0.002375 × 0.9) × 0.05",
+                  "score": 0.9770126342773438
+                },
+                {
+                  "text": "5.7e-5 × 0.9) × 0.05",
+                  "score": 0.9364345669746399
+                },
+                {
+                  "text": "= 0.21825",
+                  "score": 0.9821794033050537
+                },
+                {
+                  "text": "= 0.00011",
+                  "score": 0.9665868282318115
+                },
+                {
+                  "text": "= 0.0001327",
+                  "score": 0.9899673461914062
+                }
+              ]
+            }
+          ]
+        },
+        "67": {
+          "reasons": [
+            "little extracted text and has large image"
+          ],
+          "text_chars_before_ocr": 128,
+          "image_count": 1,
+          "images": [
+            {
+              "image": "Week 3 - Sequence Labelling-CL_images/imageFile13.png",
+              "lines": [
+                {
+                  "text": "John",
+                  "score": 0.9999871253967285
+                },
+                {
+                  "text": "bit",
+                  "score": 0.999804675579071
+                },
+                {
+                  "text": "the",
+                  "score": 0.9999974370002747
+                },
+                {
+                  "text": "apple",
+                  "score": 0.9999831914901733
+                },
+                {
+                  "text": "- - - back pointer",
+                  "score": 0.9100478291511536
+                },
+                {
+                  "text": "DET",
+                  "score": 0.9997894167900085
+                },
+                {
+                  "text": "DET",
+                  "score": 0.9999444484710693
+                },
+                {
+                  "text": "DET",
+                  "score": 0.999858558177948
+                },
+                {
+                  "text": "DET",
+                  "score": 0.9999846816062927
+                },
+                {
+                  "text": "0.95",
+                  "score": 0.9999896883964539
+                },
+                {
+                  "text": "0.95",
+                  "score": 0.9999127388000488
+                },
+                {
+                  "text": "0.05",
+                  "score": 0.999993085861206
+                },
+                {
+                  "text": "0.95",
+                  "score": 0.9999847412109375
+                },
+                {
+                  "text": "0.0012",
+                  "score": 0.9999874234199524
+                },
+                {
+                  "text": "0.052",
+                  "score": 0.9999955892562866
+                },
+                {
+                  "text": "0",
+                  "score": 0.9856469035148621
+                },
+                {
+                  "text": "0.5",
+                  "score": 0.9999578595161438
+                },
+                {
+                  "text": "0.05",
+                  "score": 0.9999806880950928
+                },
+                {
+                  "text": "0.05",
+                  "score": 0.999970555305481
+                },
+                {
+                  "text": "N",
+                  "score": 0.9981538653373718
+                },
+                {
+                  "text": "N",
+                  "score": 0.9982978701591492
+                },
+                {
+                  "text": "N",
+                  "score": 0.9989295601844788
+                },
+                {
+                  "text": "N",
+                  "score": 0.9996607303619385
+                },
+                {
+                  "text": "0.1",
+                  "score": 0.999904215335846
+                },
+                {
+                  "text": "0.9",
+                  "score": 0.9999246597290039
+                },
+                {
+                  "text": "0.1",
+                  "score": 0.9966351985931396
+                },
+                {
+                  "text": "0.002375",
+                  "score": 0.9999837875366211
+                },
+                {
+                  "text": "5.7e-5",
+                  "score": 0.9999461770057678
+                },
+                {
+                  "text": "0.0346",
+                  "score": 0.9999926686286926
+                },
+                {
+                  "text": "<s>",
+                  "score": 0.7038707137107849
+                },
+                {
+                  "text": "0.4",
+                  "score": 0.9999728798866272
+                },
+                {
+                  "text": "0.9",
+                  "score": 0.9998946189880371
+                },
+                {
+                  "text": "</s>",
+                  "score": 0.9910570979118347
+                },
+                {
+                  "text": "0.1",
+                  "score": 0.9995920062065125
+                },
+                {
+                  "text": "PN",
+                  "score": 0.9947317838668823
+                },
+                {
+                  "text": "PN",
+                  "score": 0.9957245588302612
+                },
+                {
+                  "text": "PN",
+                  "score": 0.9989233016967773
+                },
+                {
+                  "text": "PN",
+                  "score": 0.991988480091095
+                },
+                {
+                  "text": "max (0.0346 * 0.1,",
+                  "score": 0.9454785585403442
+                },
+                {
+                  "text": "0.8",
+                  "score": 0.9999826550483704
+                },
+                {
+                  "text": "0.5",
+                  "score": 0.9999601244926453
+                },
+                {
+                  "text": "5.5e-6 * 0.1,",
+                  "score": 0.9550489187240601
+                },
+                {
+                  "text": "0.3",
+                  "score": 0.9999468326568604
+                },
+                {
+                  "text": "0.05",
+                  "score": 0.9999822378158569
+                },
+                {
+                  "text": "0.1",
+                  "score": 0.9996867179870605
+                },
+                {
+                  "text": "0.25",
+                  "score": 0.9999234676361084
+                },
+                {
+                  "text": "0",
+                  "score": 0.8155137896537781
+                },
+                {
+                  "text": "5.5e-6",
+                  "score": 0.9998529553413391
+                },
+                {
+                  "text": "0.25",
+                  "score": 0.9990970492362976
+                },
+                {
+                  "text": "0.00013 * 0.5)",
+                  "score": 0.9765738248825073
+                },
+                {
+                  "text": "= 0.00346",
+                  "score": 0.9772430062294006
+                },
+                {
+                  "text": "0.25",
+                  "score": 0.9999933242797852
+                },
+                {
+                  "text": "0.25",
+                  "score": 0.9999915361404419
+                },
+                {
+                  "text": "0.1×0=0",
+                  "score": 0.9472581744194031
+                },
+                {
+                  "text": "max(0.05 × 0.05,",
+                  "score": 0.9882336258888245
+                },
+                {
+                  "text": "max (0.0012 × 0.05,",
+                  "score": 0.9687586426734924
+                },
+                {
+                  "text": "max(0.052 × 0.05,",
+                  "score": 0.9862683415412903
+                },
+                {
+                  "text": "0.3 × 0.8) × 0.9",
+                  "score": 0.9405763149261475
+                },
+                {
+                  "text": "0.002375 × 0.9) × 0.05",
+                  "score": 0.9905809760093689
+                },
+                {
+                  "text": "5.7e-5 × 0.9) × 0.05",
+                  "score": 0.945443332195282
+                },
+                {
+                  "text": "= 0.216",
+                  "score": 0.9634879231452942
+                },
+                {
+                  "text": "= 0.0001",
+                  "score": 0.9867047071456909
+                },
+                {
+                  "text": "= 0.00013",
+                  "score": 0.977676272392273
+                }
+              ]
+            }
+          ]
+        },
+        "74": {
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars_before_ocr": 50,
+          "image_count": 5,
+          "images": [
+            {
+              "image": "Week 3 - Sequence Labelling-CL_images/imageFile15.png",
+              "lines": [
+                {
+                  "text": "** Please sub",
+                  "score": 0.973163366317749
+                }
+              ]
+            },
+            {
+              "image": "Week 3 - Sequence Labelling-CL_images/imageFile16.png",
+              "lines": [
+                {
+                  "text": "uhmit weekly",
+                  "score": 0.9822909235954285
+                }
+              ]
+            },
+            {
+              "image": "Week 3 - Sequence Labelling-CL_images/imageFile17.png",
+              "lines": [
+                {
+                  "text": "kly Feedback",
+                  "score": 0.9611784815788269
+                },
+                {
+                  "text": "#%!",
+                  "score": 0.8383021950721741
+                }
+              ]
+            },
+            {
+              "image": "Week 3 - Sequence Labelling-CL_images/imageFile18.png",
+              "lines": []
+            },
+            {
+              "image": "Week 3 - Sequence Labelling-CL_images/imageFile19.png",
+              "lines": [
+                {
+                  "text": "图",
+                  "score": 0.2782941162586212
+                },
+                {
+                  "text": "MONASH",
+                  "score": 0.9965735077857971
+                },
+                {
+                  "text": "University",
+                  "score": 0.9999192357063293
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "Week4-SyntacticParsing-CL": {
+      "source_pdf": "Week4-SyntacticParsing-CL.pdf",
+      "source_json": "D:\\Leetcode\\PDF-summarize\\PDF_Output\\raw\\Week4-SyntacticParsing-CL.json",
+      "needs_ocr_pages": [
+        10,
+        109,
+        117,
+        118
+      ],
+      "pages": {
+        "10": {
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars_before_ocr": 75,
+          "image_count": 1,
+          "images": [
+            {
+              "image": "Week4-SyntacticParsing-CL_images/imageFile12.png",
+              "lines": [
+                {
+                  "text": "S",
+                  "score": 0.977540910243988
+                },
+                {
+                  "text": "S",
+                  "score": 0.9709404706954956
+                },
+                {
+                  "text": "NP",
+                  "score": 0.9999445080757141
+                },
+                {
+                  "text": "VP",
+                  "score": 0.9996148347854614
+                },
+                {
+                  "text": "NP",
+                  "score": 0.9996308088302612
+                },
+                {
+                  "text": "Pío",
+                  "score": 0.9774486422538757
+                },
+                {
+                  "text": "NP",
+                  "score": 0.9987106323242188
+                },
+                {
+                  "text": "PP",
+                  "score": 0.9988600015640259
+                },
+                {
+                  "text": "Pro",
+                  "score": 0.9016076922416687
+                },
+                {
+                  "text": "NP",
+                  "score": 0.9995231628417969
+                },
+                {
+                  "text": "Det",
+                  "score": 0.9051036834716797
+                },
+                {
+                  "text": "PP",
+                  "score": 0.9994184970855713
+                },
+                {
+                  "text": "Det N",
+                  "score": 0.9609497785568237
+                },
+                {
+                  "text": "Prep NP",
+                  "score": 0.9803792834281921
+                },
+                {
+                  "text": "Prep NP",
+                  "score": 0.9374300241470337
+                },
+                {
+                  "text": "N",
+                  "score": 0.9993475079536438
+                },
+                {
+                  "text": "N",
+                  "score": 0.9998947381973267
+                },
+                {
+                  "text": "I",
+                  "score": 0.9916055202484131
+                },
+                {
+                  "text": "ate the spaghetti with chopsticks. I ate the spaghetti with meatballs.",
+                  "score": 0.9805256724357605
+                }
+              ]
+            }
+          ]
+        },
+        "109": {
+          "reasons": [
+            "little extracted text and has large image"
+          ],
+          "text_chars_before_ocr": 149,
+          "image_count": 1,
+          "images": [
+            {
+              "image": "Week4-SyntacticParsing-CL_images/imageFile126.png",
+              "lines": [
+                {
+                  "text": "W",
+                  "score": 0.8640310764312744
+                },
+                {
+                  "text": "W",
+                  "score": 0.8635339736938477
+                },
+                {
+                  "text": "X Y Z",
+                  "score": 0.7878550291061401
+                },
+                {
+                  "text": "X",
+                  "score": 0.9846424460411072
+                },
+                {
+                  "text": "A",
+                  "score": 0.7937456369400024
+                },
+                {
+                  "text": "a b c d",
+                  "score": 0.8883762359619141
+                },
+                {
+                  "text": "aZ",
+                  "score": 0.8271509408950806
+                },
+                {
+                  "text": "b c d",
+                  "score": 0.9731743931770325
+                },
+                {
+                  "text": "Candidate",
+                  "score": 0.999970018863678
+                },
+                {
+                  "text": "Golden",
+                  "score": 0.9997645020484924
+                },
+                {
+                  "text": "Parse",
+                  "score": 0.9996879696846008
+                },
+                {
+                  "text": "Standard",
+                  "score": 0.9999373555183411
+                },
+                {
+                  "text": "The constituents for each are given below in form label:yield (yield is the span of the",
+                  "score": 0.9999663233757019
+                },
+                {
+                  "text": "node/constituent).",
+                  "score": 0.9999877214431763
+                },
+                {
+                  "text": "Candidate",
+                  "score": 0.9999973773956299
+                },
+                {
+                  "text": "gold",
+                  "score": 0.9999811053276062
+                },
+                {
+                  "text": "X:a",
+                  "score": 0.9967880249023438
+                },
+                {
+                  "text": "X:a",
+                  "score": 0.993278980255127
+                },
+                {
+                  "text": "Y:b",
+                  "score": 0.9956356883049011
+                },
+                {
+                  "text": "Z:b",
+                  "score": 0.9889122843742371
+                },
+                {
+                  "text": "Z:cd",
+                  "score": 0.9983342289924622
+                },
+                {
+                  "text": "V:cd",
+                  "score": 0.9919464588165283
+                },
+                {
+                  "text": "Y:bcd",
+                  "score": 0.9868346452713013
+                },
+                {
+                  "text": "W:abcd",
+                  "score": 0.9923956394195557
+                },
+                {
+                  "text": "W:abcd",
+                  "score": 0.9529619812965393
+                }
+              ]
+            }
+          ]
+        },
+        "117": {
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars_before_ocr": 78,
+          "image_count": 3,
+          "images": [
+            {
+              "image": "Week4-SyntacticParsing-CL_images/imageFile138.png",
+              "lines": [
+                {
+                  "text": "Approximating CKY with Transformers",
+                  "score": 0.9999909400939941
+                },
+                {
+                  "text": "Ghazal Khalighinejad",
+                  "score": 0.9999823570251465
+                },
+                {
+                  "text": "Ollie Liu",
+                  "score": 0.9999611973762512
+                },
+                {
+                  "text": "Sam Wiseman",
+                  "score": 0.9984722137451172
+                },
+                {
+                  "text": "Duke University",
+                  "score": 0.9976230263710022
+                },
+                {
+                  "text": "University of Southern California",
+                  "score": 0.999967634677887
+                },
+                {
+                  "text": "Duke University",
+                  "score": 0.9999467134475708
+                },
+                {
+                  "text": "gk126@duke.edu",
+                  "score": 0.9999915361404419
+                },
+                {
+                  "text": "zliu2898@usc.edu",
+                  "score": 0.9999909400939941
+                },
+                {
+                  "text": "swiseman@cs.duke.edu",
+                  "score": 0.9999849200248718
+                }
+              ]
+            },
+            {
+              "image": "Week4-SyntacticParsing-CL_images/imageFile139.png",
+              "lines": [
+                {
+                  "text": "Constituency Parsing using LLMs",
+                  "score": 0.9999279379844666
+                },
+                {
+                  "text": "Xuefeng Bai, Jialong Wu, Yulong Chen, Zhongqing Wang,",
+                  "score": 0.9875445365905762
+                },
+                {
+                  "text": "Kehai Chen, Min Zhang, Yue Zhang, Senior Member, IEEE",
+                  "score": 0.997947633266449
+                }
+              ]
+            },
+            {
+              "image": "Week4-SyntacticParsing-CL_images/imageFile140.png",
+              "lines": [
+                {
+                  "text": "Task Introduction",
+                  "score": 0.9999858736991882
+                },
+                {
+                  "text": "You will be given one sentence for constituency parsing. Constituency parsing is the process of",
+                  "score": 0.9999027252197266
+                },
+                {
+                  "text": "analyzing the sentences by breaking down it into sub-phrases also known as constituents.",
+                  "score": 0.999813973903656
+                },
+                {
+                  "text": "Here are some bracket constituents for you to learn from.",
+                  "score": 0.999861478805542
+                },
+                {
+                  "text": "Clause Level",
+                  "score": 0.996887743473053
+                },
+                {
+                  "text": "Phrase Level",
+                  "score": 0.9999077320098877
+                },
+                {
+                  "text": "Word level",
+                  "score": 0.9996052980422974
+                },
+                {
+                  "text": "S - simple declarative clause",
+                  "score": 0.9879863262176514
+                },
+                {
+                  "text": "ADJP - Adjective Phrase",
+                  "score": 0.9688184261322021
+                },
+                {
+                  "text": "CC - Coordinating conjunction",
+                  "score": 0.9771220088005066
+                },
+                {
+                  "text": "Instruction",
+                  "score": 0.9999862909317017
+                },
+                {
+                  "text": "Generate the constituency tree of the given sentence. You should output the constituency tree as a",
+                  "score": 0.9951748251914978
+                },
+                {
+                  "text": "bracket sequence which uses parenthese to mark visit depth and restore tree structure.",
+                  "score": 0.9957021474838257
+                },
+                {
+                  "text": "Demonstrations (Few-shot only)",
+                  "score": 0.9981182217597961
+                },
+                {
+                  "text": "The constituent tree of sentence \"Singapore is located in Asia\" is:",
+                  "score": 0.9865254759788513
+                },
+                {
+                  "text": "(S (NP (NNP Singapore)) (VP (VBZ is) (VP (VBN located) (PP (IN in) (NP (NNP Asia))))))",
+                  "score": 0.9962393045425415
+                },
+                {
+                  "text": "Task input",
+                  "score": 0.9998952150344849
+                },
+                {
+                  "text": "The constituent tree of sentence \"Sam thinks Sandy likes the book\" is:",
+                  "score": 0.9968927502632141
+                },
+                {
+                  "text": "Fig. 3. Illustration of prompts for zero/few-shot learning.",
+                  "score": 0.9894073009490967
+                }
+              ]
+            }
+          ]
+        },
+        "118": {
+          "reasons": [
+            "very little extracted text and has image"
+          ],
+          "text_chars_before_ocr": 50,
+          "image_count": 4,
+          "images": [
+            {
+              "image": "Week4-SyntacticParsing-CL_images/imageFile142.png",
+              "lines": [
+                {
+                  "text": "** Please sub",
+                  "score": 0.973163366317749
+                }
+              ]
+            },
+            {
+              "image": "Week4-SyntacticParsing-CL_images/imageFile143.png",
+              "lines": [
+                {
+                  "text": "uhmit weekly",
+                  "score": 0.9822909235954285
+                }
+              ]
+            },
+            {
+              "image": "Week4-SyntacticParsing-CL_images/imageFile144.png",
+              "lines": [
+                {
+                  "text": "kly Feedback",
+                  "score": 0.9611784815788269
+                },
+                {
+                  "text": "#%!",
+                  "score": 0.8383021950721741
+                }
+              ]
+            },
+            {
+              "image": "Week4-SyntacticParsing-CL_images/imageFile145.png",
+              "lines": []
+            }
+          ]
+        }
+      }
+    }
+  }
+}
