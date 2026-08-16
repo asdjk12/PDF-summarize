@@ -153,10 +153,11 @@ PDF-summarize/
 ├── PDF_Folder/                  # 输入 PDF
 ├── PDF_Output/
 │   ├── raw/                     # OpenDataLoader 原始 JSON、Markdown 与图片
-│   └── analysis/                # baseline、OCR 与 canonical 数据
+│   └── analysis/                # baseline、OCR、canonical 与 chunks 数据
 ├── pdf_read.py                  # 当前流水线入口
 ├── OpenDataLoaderSchema.py      # 页级信号、OCR 策略与 baseline 分析
 ├── combine_format.py            # canonical schema 与内容合并逻辑
+├── chunking.py                  # 保留章节与页码来源的结构感知切块
 ├── tests/                       # 流水线与数据模型测试
 └── PROJECT_REQUIREMENTS.md      # 唯一正式项目要求与统一术语
 ```

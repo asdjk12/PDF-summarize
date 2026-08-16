@@ -6,7 +6,7 @@ __pycache__
 .vscode
 reference
 .pytest_cache
+PDF_Output
+PDF_Output\analysis
+stable_pdf_output.md
 tests
-PDF_Output/raw/Week 2 - Language Modelling-CL-2026_images/
-PDF_Output/raw/Week 3 - Sequence Labelling-CL_images/
-PDF_Output/raw/Week4-SyntacticParsing-CL_images/
