@@ -9,4 +9,5 @@ reference
 PDF_Output
 PDF_Output\analysis
 stable_pdf_output.md
-tests
+/tests/
+canonical_documents.json

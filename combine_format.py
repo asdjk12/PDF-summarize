@@ -10,7 +10,9 @@ from enum import StrEnum
 from pathlib import Path
 from typing import Any
 
-BUILDER_VERSION = "0.2.0"
+from PDF_JSON_Fix import fix_pdf_json
+
+BUILDER_VERSION = "0.3.0"
 MERGE_STRATEGY = "native_first_ocr_supplement"
 
 #*******************Fixed Class*******************
@@ -257,22 +259,25 @@ class FormattedDocumentBuilder:
                     f"Baseline document {document_name!r} has no source_pdf."
                 )
 
+            fixed_json = fix_pdf_json(
+                raw_document,
+                source_name=source_name,
+            )
+            raw_document = fixed_json.document
+
             source_path = self._source_dir / source_name
             if not source_path.is_file():
                 raise FileNotFoundError(f"Source PDF does not exist: {source_path}")
 
             content_sha256 = hashlib.sha256(source_path.read_bytes()).hexdigest()
             document_id = self._document_id(document_name, content_sha256)
-            raw_title = raw_document.get("title")
-            title = raw_title.strip() if isinstance(raw_title, str) else None
-
             source = SourceReference(
                 kind=SourceKind.PDF,
                 source_name=source_name,
                 source_uri=str(source_path),
                 mime_type="application/pdf",
                 content_sha256=content_sha256,
-                title=title or None,
+                title=fixed_json.title,
                 page_count=int(baseline_document["page_count"]),
             )
             documents.append(
@@ -282,6 +287,7 @@ class FormattedDocumentBuilder:
                     ocr_document=ocr_documents.get(document_name),
                     document_id=document_id,
                     source=source,
+                    ignored_page_numbers=fixed_json.suppressed_pages,
                 )
             )
 
@@ -324,6 +330,7 @@ def build_canonical_document(
     ocr_document,        # ocr result
     document_id,
     source:SourceReference,
+    ignored_page_numbers: tuple[int, ...] = (),
 ):
     
     # 初始版本的Canonical document, 进入llm总结的最终版本
@@ -337,6 +344,7 @@ def build_canonical_document(
     
     baseline_pages = baseline_document["pages"] #???????
     ocr_pages = (ocr_document or {}).get("pages", {})   # 已经ocr完成的
+    ignored_pages = set(ignored_page_numbers)
 
     segments = []   
     native_blocks_by_page = extract_native_blocks(
@@ -359,13 +367,23 @@ def build_canonical_document(
             (),
         )
 
-        merged_blocks, diagnostics = merge_page_blocks(
-            native_blocks=native_blocks,
-            ocr_page=ocr_pages.get(page_key),
-            document_id=document_id,
-            page_number=page_number,
-            diagnostics=diagnostics,
-        )
+        if page_number in ignored_pages:
+            merged_blocks = ()
+            diagnostics = replace(
+                diagnostics,
+                warnings=(
+                    *diagnostics.warnings,
+                    "Page excluded from LLM content by PDF_JSON_Fix.",
+                ),
+            )
+        else:
+            merged_blocks, diagnostics = merge_page_blocks(
+                native_blocks=native_blocks,
+                ocr_page=ocr_pages.get(page_key),
+                document_id=document_id,
+                page_number=page_number,
+                diagnostics=diagnostics,
+            )
 
         # document build
         segments.append(

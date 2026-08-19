@@ -10,10 +10,13 @@ class ChunkingConfig:
     """Deterministic limits for downstream summary/retrieval chunks."""
 
     max_characters: int = 4_000
+    max_pages: int = 4
 
     def __post_init__(self) -> None:
         if self.max_characters <= 0:
             raise ValueError("max_characters must be greater than zero.")
+        if self.max_pages <= 0:
+            raise ValueError("max_pages must be greater than zero.")
 
 
 @dataclass(frozen=True, slots=True)
@@ -43,9 +46,10 @@ def chunk_document(
     current_blocks: list[tuple[ContentBlock, int, str]] = []
     current_section: tuple[str, ...] = ()
     current_length = 0
+    current_pages: set[int] = set()
 
     def flush() -> None:
-        nonlocal current_blocks, current_section, current_length
+        nonlocal current_blocks, current_section, current_length, current_pages
         if not current_blocks:
             return
 
@@ -73,6 +77,7 @@ def chunk_document(
         current_blocks = []
         current_section = ()
         current_length = 0
+        current_pages = set()
 
     for segment in document.segments:
         page_number = segment.locator.page_number
@@ -94,14 +99,19 @@ def chunk_document(
                 section_changed = bool(current_blocks) and (
                     block.section_path != current_section
                 )
+                page_limit_reached = (
+                    page_number not in current_pages
+                    and len(current_pages) >= selected_config.max_pages
+                )
 
-                if section_changed or would_exceed_limit:
+                if section_changed or would_exceed_limit or page_limit_reached:
                     flush()
 
                 if not current_blocks:
                     current_section = block.section_path
 
                 current_blocks.append((block, page_number, fragment))
+                current_pages.add(page_number)
                 current_length += (
                     (2 if len(current_blocks) > 1 else 0) + len(fragment)
                 )

@@ -172,7 +172,7 @@ def build_derived_artifacts(paths: PipelinePaths | None = None):
         for document in canonical_documents
         for chunk in chunk_document(
             document,
-            ChunkingConfig(max_characters=4_000),
+            ChunkingConfig(max_characters=4_000, max_pages=4),
         )
     )
 
