@@ -1,229 +1,842 @@
-# PDF Summarize 项目要求
+PDF Knowledge Agent — Project Vision
 
-> **权威性声明**：本文件是 `PDF-summarize` 项目当前且唯一的项目要求来源。
-> `README.md`、历史 chat、代码注释、设计草图和当前实现只能解释或实现本文件，不能独立扩大、缩小或改写项目范围。发生冲突时，以本文件当前版本为准。
+Status: Product Vision
+Updated: 2026-08-20
 
-- 状态：已批准
-- 基线版本：1.1
-- 批准日期：2026-08-10
-- 批准人：项目所有者
-- 1.1 变更：收敛项目文档，将领域术语并入本文件；产品范围与验收要求不变。
+1. Project Vision
 
-## 1. 产品定义
+The goal of this project is to build a personal knowledge agent that can reliably understand, summarize, retrieve, compare, and answer questions from user-provided documents.
 
-`PDF-summarize` 最终要成为一个可公开使用、也可由个人在本地部署的知识库助手。
+The system begins with PDF as the primary knowledge source and is designed to expand toward web pages, images, audio, video, and local knowledge folders.
 
-系统首先处理单份或多份 PDF，为选定内容生成静态总结，并建立面向用户提问的检索增强生成（RAG）能力；随后将完整后端能力接入正式的公开网站；再提供可部署到个人电脑、能够读取用户授权文件夹的本地知识库 chatbot；最后把输入范围从 PDF 等文本型资料扩展到音频、视频等多模态资料，同时复用相同的总结、索引、检索和问答逻辑。
+The core product experience is:
 
-### 1.1 统一术语
+User provides knowledge sources
+        ↓
+System processes and indexes the content
+        ↓
+User receives a complete static summary
+        ↓
+User asks questions dynamically
+        ↓
+System retrieves relevant evidence
+        ↓
+Agent produces grounded answers with citations
+        ↓
+User continues multi-turn knowledge tasks
 
-- **知识源（Knowledge Source）**：用户授权系统处理的一份原始资料；当前首先指 PDF，后续包括音频和视频。
-- **资料集合（Source Set）**：用户为一次总结、索引或提问选定的一份或多份知识源。
-- **统一内容（Canonical Content）**：由原始资料解析、OCR 或转写后形成的稳定、可追溯内容表示，是总结和检索共同使用的事实层。PDF 阶段的具体表示称为 `CanonicalDocument`。
-- **静态总结（Static Summary）**：不依赖用户问题，对指定资料集合的重要内容进行覆盖式组织和压缩的结果。
-- **知识索引（Knowledge Index）**：从统一内容生成、用于定位相关证据且可以重建的派生结构。
-- **证据回答（Grounded Answer）**：针对用户问题，从资料集合中检索证据后生成，并能定位回原始来源的回答。
-- **公开网站（Hosted Website）**：部署在远程环境、通过公开网址访问的产品形态；它通过浏览器授权的选择或上传接收用户资料。
-- **本地知识库助手（Local Knowledge Assistant）**：部署在用户电脑上、经用户授权读取指定本地文件夹，并提供总结与 chatbot 问答的产品形态。
-- **多模态知识源（Multimodal Knowledge Source）**：需要通过文本提取、语音转写或视觉理解形成统一内容的非纯文本资料，至少包括音频和视频。
-- **来源定位（Source Locator）**：把内容、总结或回答映射回原始资料位置的信息；PDF 使用页码，音视频使用时间范围。
+The product should always preserve traceability back to the original source.
 
-## 2. 不可破坏的产品原则
+2. PDF Content Reading
 
-### 2.1 单份与多份资料同等成立
+PDF documents are treated as visual-first knowledge sources.
 
-所有核心流程必须同时支持一份资料和多份资料。多份资料不能被无条件拼接成一个超大模型输入；系统必须保持每份资料的身份、边界和来源。
+Each PDF is processed at page level. Pages are rendered into images and stored as stable knowledge units with document identity, page identity, page number, and source location.
 
-### 2.2 静态总结与 RAG 是两种消费方式
+The system should be able to read:
 
-- 静态总结面向用户选定的一份或多份资料，目标是覆盖资料的重要内容并形成结构化总结。
-- RAG 面向用户问题，目标是从已处理资料中检索相关证据并生成有依据的回答。
+native-text PDFs;
 
-RAG 检索不能代替完整静态总结；静态总结也不能代替按问题检索证据。
+scanned PDFs;
 
-### 2.3 一个可追溯的内容事实层
+tables;
 
-解析、OCR 或转写产生的内容必须进入统一、稳定、可追溯的内部表示。静态总结、索引、RAG 和后续多模态能力必须共享该内容事实层，不得各自维护互相冲突的正文版本。
+charts;
 
-每个可用于总结或回答的内容单元应尽可能保留：
+figures;
 
-- 原始资料标识；
-- PDF 页码或音视频时间范围；
-- 章节或上下文路径；
-- 内容类型；
-- 处理来源与必要的质量信息。
+formulas;
 
-### 2.4 索引是派生数据
+multi-column layouts;
 
-Embedding、关键词索引和向量数据库都是可从统一内容事实层重建的派生数据，不能成为唯一事实来源。
+mixed text-image pages;
 
-### 2.5 产品必须真正端到端可用
+complex visual layouts.
 
-“完成”不等于后端函数能够运行。每个阶段必须达到本文件定义的用户可操作结果，并通过对应验收门槛。
+The primary PDF reading flow is:
 
-## 3. 交付阶段与功能要求
+PDF
+ ↓
+Page Rendering
+ ↓
+Page Image
+ ↓
+Visual Representation
+ ↓
+Visual Embedding
+ ↓
+Knowledge Index
 
-阶段必须按依赖关系推进。后续阶段不得绕过前一阶段的稳定数据与服务接口另建一套流程。
+Native text parsing, OCR, and structural extraction remain optional auxiliary capabilities.
 
-## Phase 1：PDF 总结与 RAG 后端
+They can be used when useful for:
 
-### 3.1 PDF 输入与处理
+keyword retrieval;
 
-- `PDF-001`：系统必须接受单份 PDF。
-- `PDF-002`：系统必须接受多份 PDF，并保留每份 PDF 的独立身份和处理状态。
-- `PDF-003`：系统必须提取可用的文本、结构、页码及必要的非纯文本信息。
-- `PDF-004`：当 PDF 原生内容不足时，系统必须能够按需使用 OCR 补充内容，而不是无条件用 OCR 覆盖原生内容。
-- `PDF-005`：原生解析内容与 OCR 补充内容必须被统一、去重并保留来源关系。
-- `PDF-006`：长文档必须在保留章节、段落和来源边界的前提下切块，不能依赖把全文一次性交给大模型。
+exact number matching;
 
-### 3.2 静态总结
+text-heavy summarization;
 
-- `SUM-001`：用户必须能够选择一份或多份已处理 PDF 生成总结。
-- `SUM-002`：单份 PDF 总结至少应表达核心主题、关键内容和主要结论。
-- `SUM-003`：多份 PDF 总结必须同时保留单文档结果，并能够给出跨文档的共同点、差异或综合结果。
-- `SUM-004`：长文档总结必须采用可扩展的分层处理方式，避免单次上下文窗口成为资料长度上限。
-- `SUM-005`：重要总结结论应能够追溯到原始 PDF 和页码或内容块。
-- `SUM-006`：系统必须提供适合人阅读的结果，并保留可供程序继续消费的结构化结果。
+metadata extraction;
 
-### 3.3 RAG 问答
+document structure recovery;
 
-- `RAG-001`：系统必须能够从已处理的单份或多份 PDF 建立可查询索引。
-- `RAG-002`：用户必须能够针对全部资料或指定资料范围提问。
-- `RAG-003`：系统必须先检索相关证据，再基于证据生成回答。
-- `RAG-004`：回答必须保留可核对的资料名称、页码或内容块引用。
-- `RAG-005`：当证据不足或资料之间互相冲突时，系统必须显式说明，不得伪造统一结论。
-- `RAG-006`：系统应支持多轮追问，并保持当前问题涉及的资料范围和对话上下文。
-- `RAG-007`：索引必须能够在资料新增、修改或删除后更新或重建。
+validation;
 
-### Phase 1 验收门槛
+fallback processing.
 
-使用代表性 PDF 样本完成端到端验证：
+The system should not depend on OCR success before a PDF can enter the knowledge base.
 
-1. 单 PDF 可以从输入走到结构化总结和带引用问答；
-2. 多 PDF 可以分别处理、联合总结并跨文档问答；
-3. 长文档不会因无法一次放入模型而失败；
-4. 总结和回答中的来源能够回到正确资料与页码；
-5. OCR 补充内容不会无依据地覆盖原生内容；
-6. 后端能力具有稳定的调用边界，可供网站接入。
+Every page should remain traceable to its original document and page number.
 
-## Phase 2：正式公开网站
+3. Canonical Knowledge
 
-### 3.4 前端、后端与部署打通
+The system should maintain a unified knowledge representation for every source.
 
-- `WEB-001`：项目必须具有面向最终用户的正式网页界面，而不只是脚本、Notebook 或接口演示。
-- `WEB-002`：网页必须接入 Phase 1 的真实后端流程，支持资料提交、处理状态、总结、提问和引用查看。
-- `WEB-003`：用户必须能够在网页中选择一份或多份资料作为总结或问答范围。
-- `WEB-004`：耗时的解析、OCR、索引和总结任务必须向用户展示可理解的状态与失败信息。
-- `WEB-005`：网站必须完成可重复的生产部署，并具有公开可访问的入口。
-- `WEB-006`：部署配置、密钥和用户资料不能被硬编码进前端或提交到公开仓库。
-- `WEB-007`：网站必须对上传文件、任务失败和服务不可用提供明确反馈。
+A document is not represented only as extracted text.
 
-### 公开网站与本地路径的边界
+A document can contain:
 
-托管在远程服务器上的公开网站不能直接读取用户电脑上的任意文件夹路径。公开网站阶段通过浏览器授权的文件选择或上传机制接收资料；本地文件夹路径访问属于 Phase 3 的本地部署能力。
+Document
+├─ Metadata
+├─ Pages
+│  ├─ Page Image
+│  ├─ Page Number
+│  ├─ Source Locator
+│  ├─ Visual Embedding Reference
+│  ├─ Optional Text
+│  └─ Optional Structure Metadata
+├─ Summary Artifacts
+└─ Processing State
 
-### Phase 2 验收门槛
+The canonical knowledge layer is the stable source of document identity and source traceability.
 
-新用户打开公开网址后，不需要操作服务器命令，即可完成：
+Search indexes, embeddings, caches, and retrieval databases are derived data and must be rebuildable.
 
-```text
-提交 PDF → 等待处理 → 查看静态总结 → 发起问题 → 查看带来源回答
-```
+4. Static Summary
 
-前端、后端、任务处理、数据保存和生产部署必须形成完整闭环。
+Static summary is a full-document understanding capability.
 
-## Phase 3：可本地部署的个人知识库助手
+Its purpose is to answer:
 
-### 3.5 本地 chatbot 与文件夹知识源
+What does this document or document set contain?
 
-- `LOCAL-001`：项目必须提供普通用户可以复现的本地部署方式。
-- `LOCAL-002`：本地版本必须提供 chatbot 式交互界面，并复用公开网站已经验证的总结与 RAG 能力。
-- `LOCAL-003`：用户必须能够明确授权并配置电脑中的一个或多个文件夹路径作为知识源。
-- `LOCAL-004`：系统必须发现文件夹内受支持的资料，并允许用户控制是否包含子文件夹。
-- `LOCAL-005`：文件新增、修改、移动或删除后，本地知识库必须能够检测变化并更新相应内容与索引，不能要求每次全量重建。
-- `LOCAL-006`：用户必须能够限定总结或问答使用的文件、文件夹或资料集合。
-- `LOCAL-007`：本地部署文档必须明确哪些处理发生在本机，哪些请求可能发送给外部模型或服务。本地部署不等同于自动实现完全离线。
-- `LOCAL-008`：本地文件只能在用户明确配置的知识源范围内被读取。
+Static summary must cover the selected source scope instead of retrieving only a few relevant pages.
 
-### Phase 3 验收门槛
+The summary pipeline should process long documents hierarchically.
 
-一名没有参与开发的用户，按照公开文档在自己的电脑上完成部署后，可以：
+Example:
 
-1. 配置一个本地文件夹；
-2. 看到资料发现和处理状态；
-3. 对选定资料生成总结；
-4. 通过 chatbot 连续提问并查看来源；
-5. 在文件发生变化后更新知识库；
-6. 清楚知道数据是否离开本机。
+Pages
+ ↓
+Page Groups
+ ↓
+Local Summaries
+ ↓
+Section Summaries
+ ↓
+Document Summary
+ ↓
+Multi-document Summary
 
-## Phase 4：多模态知识库
+The summary system should preserve source references during every aggregation stage.
 
-### 3.6 音频、视频与其他资料类型
+A final summary should support:
 
-- `MM-001`：可选知识源不得永久局限于 PDF 或纯文本资料。
-- `MM-002`：系统必须支持音频和视频输入，并为其生成可检索、可总结的内容表示。
-- `MM-003`：音视频内容必须保留原始文件与时间范围，使总结和回答能够定位到对应时间片段。
-- `MM-004`：音视频资料必须复用与 PDF 同类的能力：静态总结、索引、检索、RAG 问答和多轮上下文。
-- `MM-005`：多模态扩展不得破坏已经支持的 PDF 工作流。
-- `MM-006`：不同模态的资料必须能够在用户指定范围内进行联合总结和联合问答。
-- `MM-007`：如果某种模态无法可靠解析，系统必须暴露处理状态和限制，不能把失败内容当作已成功进入知识库。
+section-level citations;
 
-### Phase 4 验收门槛
+page-level citations;
 
-系统至少通过 PDF、音频和视频的代表性样本验证：
+multi-document source attribution;
 
-1. 每种资料可以独立进入知识库；
-2. 可以生成具有来源定位的总结；
-3. 可以完成带证据的问答；
-4. 可以跨模态选择资料并进行联合总结或提问；
-5. 音视频引用可以定位到正确时间范围。
+summary artifact versioning;
 
-## 4. 全阶段质量要求
+regeneration after source updates.
 
-- `QLT-001`：系统必须区分原始事实、模型生成内容、用户输入和系统推断。
-- `QLT-002`：任何单个资料处理失败都不应无条件破坏其他资料的已完成结果。
-- `QLT-003`：核心流程必须具备可观察的状态、错误信息和可重复验证方式。
-- `QLT-004`：解析器、OCR、生成模型、Embedding 模型、索引和部署方式应通过稳定边界接入；本需求不锁定唯一供应商。
-- `QLT-005`：入口层只负责编排，复杂规则应收敛到职责明确的模块中，避免以大量零散 helper function 代替模块边界。
-- `QLT-006`：公开网站和本地版本必须共享核心业务能力，不能演变为两套结果不一致的产品。
-- `QLT-007`：支持的文件类型、大小限制、模型依赖、数据去向和已知限制必须对用户可见。
+Static summary should support both:
 
-## 5. 技术决策状态
+Single Document Summary
 
-### 5.1 已锁定的 Agent 架构基线
+and:
 
-- Agent Runtime 使用 DeepSeek Harness；
-- 项目通过 Harness Plugin 接入 PDF 总结、检索、问答和记忆能力，不自行重复实现 Agent Loop、Session 和通用 Tool Registry；
-- 具体模块职责、安全执行策略和分阶段实现范围以 [agent_structure.md](./agent_structure.md) 为准。
+Multiple Document Summary
 
-该决策只锁定 Agent 运行地基和接入 seam，不锁定 LLM、Embedding、索引、Web 框架或部署供应商。
+For large document sets, the system should summarize documents independently first and then perform higher-level aggregation.
 
-### 5.2 当前不锁定的技术决策
+5. Dynamic Query
 
-以下内容只有在后续经过明确决策后才能成为约束；当前不得从历史 chat 推断为强制要求：
+Dynamic query is the retrieval-based knowledge interaction path.
 
-- 前端框架；
-- 后端 Web 框架；
-- LLM 或多模态模型供应商；
-- Embedding 模型；
-- 向量数据库；
-- 云部署平台；
-- 本地打包方式；
-- 是否支持完全离线推理。
+Its purpose is to answer:
 
-选择这些技术时，必须服务于本文件的用户流程、可追溯性、公开部署和本地部署要求。
+How do the selected documents answer this specific question?
 
-## 6. 非目标
+The main flow is:
 
-- 不构建脱离用户资料、没有来源约束的通用聊天机器人。
-- 不允许静态总结、RAG、网站和本地版本分别维护互相冲突的资料内容。
-- 不把“能够在开发者电脑上运行”视为公开网站或普通用户本地部署已经完成。
-- 在 Phase 4 之前，不把音视频支持宣传为已交付能力。
+User Query
+ ↓
+Source Scope Resolution
+ ↓
+Query Embedding
+ ↓
+Visual Retrieval
+ ↓
+Relevant Pages
+ ↓
+Optional Text Retrieval
+ ↓
+Evidence Fusion
+ ↓
+Rerank
+ ↓
+Reader Model
+ ↓
+Grounded Answer
+ ↓
+Source Citation
 
-## 7. 需求变更规则
+The system should retrieve only a small number of relevant pages from a potentially very large knowledge base.
 
-1. 只有项目所有者明确确认的变更才能修改本文件。
-2. 新讨论默认属于候选方案，不自动成为项目要求。
-3. 修改需求时必须更新基线版本、日期和受影响条款。
-4. 被替代的要求不得与新要求同时保持有效；历史由版本控制保存。
-5. `README.md` 必须引用本文件，并在本文件变更后同步检查一致性。
+This allows the knowledge base to scale without sending entire documents into the model context.
+
+Dynamic retrieval should support:
+
+single-document queries;
+
+multi-document queries;
+
+visual retrieval;
+
+optional keyword retrieval;
+
+optional text embedding retrieval;
+
+evidence reranking;
+
+source filtering;
+
+document comparison;
+
+evidence sufficiency detection.
+
+All retrieved information must be converted into a unified Evidence format before answer generation.
+
+6. Evidence and Grounded Answer
+
+Evidence is the boundary between retrieval and answer generation.
+
+Evidence can come from:
+
+Visual Retrieval
+Text Retrieval
+Keyword Search
+Static Summary Artifact
+Future Audio Retrieval
+Future Video Retrieval
+
+Each evidence item should contain:
+
+Evidence
+├─ Evidence ID
+├─ Document ID
+├─ Source Locator
+├─ Representation Type
+├─ Retrieval Score
+├─ Page Image Reference
+└─ Optional Text
+
+The grounded answer module receives only:
+
+User Query
++
+Evidence
+
+It should then:
+
+Check Evidence Sufficiency
+ ↓
+Read Relevant Evidence
+ ↓
+Generate Answer
+ ↓
+Map Claims to Sources
+ ↓
+Validate Grounding
+ ↓
+Return Answer with Citations
+
+If the available evidence is insufficient, the system should explicitly report insufficient evidence.
+
+7. Agent Architecture
+
+DeepSeek Harness is the Agent Runtime and control plane of the system.
+
+The Agent layer is responsible for:
+
+interpreting user intent;
+
+maintaining the current session;
+
+selecting tools;
+
+coordinating multi-step tasks;
+
+deciding when to summarize, search, compare, or inspect;
+
+combining tool results into final responses.
+
+The Agent should not directly operate low-level infrastructure such as:
+
+vector databases;
+
+file system paths;
+
+embedding models;
+
+OCR engines;
+
+rendering libraries;
+
+SQL;
+
+shell commands.
+
+The Agent interacts with the knowledge system through narrow domain tools.
+
+Primary tools include:
+
+list_sources
+inspect_source
+summarize_sources
+search_evidence
+compare_sources
+get_artifact
+
+The Agent runtime flow is:
+
+User
+ ↓
+DeepSeek Harness
+ ↓
+Session
+ ↓
+Prompt Assembly
+ ↓
+LLM
+ ↓
+Tool Call
+ ↓
+Validation
+ ↓
+Scope Guard
+ ↓
+Knowledge Plugin
+ ↓
+Knowledge Domain
+ ↓
+Structured Tool Result
+ ↓
+LLM
+ ↓
+Final Response
+
+The knowledge domain should remain independent from the Agent Runtime so that future runtime changes do not require rebuilding the document system.
+
+8. Knowledge Plugin
+
+The Knowledge Plugin is the interface between DeepSeek Harness and the document knowledge domain.
+
+Its responsibilities are:
+
+Tool Registration
+Tool Schema
+Request Validation
+Scope Validation
+Transport
+Error Mapping
+Structured Tool Result
+
+The plugin should remain thin.
+
+It should not implement:
+
+Summary Algorithms
+Retrieval Algorithms
+Vector Search
+Embedding
+OCR
+Rendering
+Knowledge Storage
+
+These capabilities belong to the knowledge domain.
+
+9. Knowledge Repository
+
+The Knowledge Repository is the main domain access layer.
+
+It should provide stable access to:
+
+Documents
+Pages
+Rendered Pages
+Source Metadata
+Processing State
+Summary Artifacts
+Evidence References
+Indexes
+
+The repository should hide storage implementation details from higher-level modules.
+
+Possible storage technologies may include:
+
+Local File System
+Object Storage
+SQLite
+PostgreSQL
+Document Database
+Qdrant
+FAISS
+
+The application should access knowledge through repository interfaces rather than directly accessing storage backends.
+
+10. Website
+
+The website is the primary public product interface.
+
+The website should allow users to:
+
+Upload Documents
+ ↓
+View Processing Status
+ ↓
+Open Document Library
+ ↓
+Generate Static Summary
+ ↓
+Ask Questions
+ ↓
+View Grounded Answers
+ ↓
+Open Citations
+ ↓
+Compare Documents
+ ↓
+View Generated Artifacts
+
+The website should support:
+
+user authentication;
+
+document upload;
+
+document processing status;
+
+source selection;
+
+multi-document selection;
+
+summary view;
+
+chat interface;
+
+citation viewer;
+
+document page preview;
+
+artifact history;
+
+error states;
+
+data deletion;
+
+knowledge base management.
+
+The browser can only access files explicitly selected or uploaded by the user.
+
+It must not directly scan arbitrary folders on the user's device.
+
+11. Local Knowledge Assistant
+
+The local product extends the same knowledge system to explicitly authorized folders.
+
+Users should be able to select one or more local folders as knowledge sources.
+
+The system should then:
+
+Folder Authorization
+ ↓
+File Discovery
+ ↓
+Document Processing
+ ↓
+Visual Indexing
+ ↓
+Knowledge Repository
+ ↓
+Local Agent
+
+The local assistant should support incremental updates.
+
+When a file changes:
+
+File Change
+ ↓
+Content Hash
+ ↓
+Version Check
+ ↓
+Re-render Changed Document
+ ↓
+Rebuild Derived Representations
+ ↓
+Update Index
+ ↓
+Invalidate Dependent Artifacts
+
+The local product should clearly distinguish:
+
+Processing on Local Device
+
+from:
+
+Content Sent to External Models
+
+Local deployment does not automatically imply fully offline operation.
+
+12. Session Memory
+
+Session memory belongs to the Agent Runtime.
+
+It stores the current interaction state, including:
+
+User Messages
+Assistant Messages
+Tool Calls
+Tool Results
+Current Source Scope
+Current Task State
+Current Artifact References
+
+Session memory should not become a second document database.
+
+Document facts remain in the knowledge repository.
+
+13. Long-Term User Memory
+
+Long-term memory stores a small amount of user-level information that is useful across sessions.
+
+Examples include:
+
+Preferred Summary Style
+Preferred Response Length
+Preferred Workflow
+Stable User Choices
+
+Long-term memory should be:
+
+explainable;
+
+removable;
+
+scoped;
+
+versioned where necessary;
+
+optional.
+
+It should not store:
+
+Full PDF Content
+Full Page Images
+Full Conversation History
+Document Knowledge
+
+14. Source Scope and Permissions
+
+Every knowledge task operates inside an explicit source scope.
+
+Example:
+
+source_scope = [
+    "doc_001",
+    "doc_014",
+    "doc_091"
+]
+
+Before any domain operation:
+
+Tool Call
+ ↓
+Schema Validation
+ ↓
+User Authorization
+ ↓
+Source Scope Validation
+ ↓
+Repository Validation
+ ↓
+Execution
+
+The model must never be allowed to expand its own permissions.
+
+The model should not be able to:
+
+scan arbitrary paths;
+
+read unauthorized documents;
+
+delete user files;
+
+modify source content;
+
+execute arbitrary shell commands;
+
+rebuild indexes without authorization;
+
+modify canonical knowledge directly.
+
+15. Large-Scale Knowledge Base
+
+The architecture should support growth from:
+
+Single PDF
+
+to:
+
+Thousands of PDFs
+
+and eventually:
+
+Millions of Pages
+
+For example:
+
+10,000 PDFs
+×
+100 pages
+=
+1,000,000 pages
+
+The query path remains:
+
+1,000,000 Indexed Pages
+ ↓
+Approximate Nearest Neighbor Search
+ ↓
+Top-K Pages
+ ↓
+Rerank
+ ↓
+Reader
+
+The model never needs to load the entire knowledge base.
+
+Scaling concerns therefore focus on:
+
+Rendering Throughput
+Embedding Throughput
+Image Storage
+Vector Storage
+Index Performance
+Metadata Filtering
+Incremental Update
+Reader Cost
+
+16. Failure Handling
+
+The system should degrade gracefully when individual capabilities fail.
+
+Examples:
+
+Visual Retrieval Failure
+ ↓
+Fallback Text Retrieval
+
+Native Parse Failure
+ ↓
+Continue Visual Processing
+
+OCR Failure
+ ↓
+Continue Visual Processing
+
+Reader Failure
+ ↓
+Return Retrieved Evidence
+
+Insufficient Evidence
+ ↓
+Return Explicit Limitation
+
+The system should never fabricate document-grounded answers when source processing or retrieval fails.
+
+17. Security
+
+Untrusted documents should be isolated from the main runtime.
+
+For public upload scenarios, document processing may run inside short-lived workers.
+
+Worker responsibilities may include:
+
+PDF Rendering
+Native Parsing
+OCR
+Structure Processing
+
+The worker should enforce:
+
+CPU Limits
+Memory Limits
+Execution Timeout
+Restricted File System
+Restricted Network
+No Long-Term Credentials
+
+The Agent Runtime should separately enforce:
+
+Tool Allowlist
+Schema Validation
+Source Scope
+Permission Policy
+Sandbox Rules
+
+18. Model Roles
+
+The system separates several model responsibilities.
+
+Agent Model
+
+Used for:
+
+Intent Understanding
+Tool Selection
+Workflow Orchestration
+Multi-turn Reasoning
+
+Primary runtime:
+
+DeepSeek Harness
+
+Visual Embedding Model
+
+Used for:
+
+Page Image → Vector
+Query → Vector
+
+Reader Model
+
+Used for:
+
+Relevant Pages
++
+Question
+ ↓
+Evidence Understanding
+ ↓
+Grounded Answer
+
+The reader should be multimodal.
+
+The Agent Model and Reader Model may be different models.
+
+19. Evaluation
+
+The project should maintain independent evaluation for retrieval, summary, and grounded answers.
+
+Retrieval
+
+Recall@K
+MRR
+nDCG
+Page Hit Rate
+
+Evaluation document types:
+
+Plain Text
+Scanned PDF
+Table
+Chart
+Formula
+Multi-column Layout
+Mixed Layout
+
+Static Summary
+
+Coverage
+Faithfulness
+Citation Correctness
+Cross-page Consistency
+Cross-document Consistency
+
+Grounded Answer
+
+Evidence Relevance
+Answer Faithfulness
+Citation Precision
+Citation Recall
+Insufficient Evidence Detection
+
+20. Multi-Modal Expansion
+
+The long-term knowledge system should support:
+
+PDF
+Web
+Image
+Audio
+Video
+
+Each source should provide:
+
+Knowledge Representation
++
+Source Locator
++
+Searchable Representation
++
+Evidence
+
+Source location differs by modality.
+
+Examples:
+
+PDF   → Page Number
+Web   → URL / Screenshot Region
+Image → Image ID / Region
+Audio → Time Range
+Video → Time Range / Frame Range
+
+The same high-level capabilities should continue to work:
+
+Summary
+Search
+Compare
+Grounded Answer
+Agent Tools
+
+21. Final Product
+
+The final system should allow a user to:
+
+Provide Knowledge Sources
+        ↓
+Build a Personal Knowledge Base
+        ↓
+Receive Complete Static Summaries
+        ↓
+Ask Dynamic Questions
+        ↓
+Retrieve Relevant Visual Evidence
+        ↓
+Receive Grounded Answers
+        ↓
+Inspect Original Sources
+        ↓
+Continue Multi-step Tasks with an Agent
+        ↓
+Keep the Knowledge Base Updated
+
+The core product principle is:
+
+Every generated conclusion should remain connected to the original knowledge source.
