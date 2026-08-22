@@ -1,5 +1,4 @@
 from pathlib import Path
-from paddleocr import PaddleOCR
 import opendataloader_pdf
 from dataclasses import asdict, dataclass
 import json
@@ -87,13 +86,7 @@ def main(paths: PipelinePaths | None = None):
         
         # ocr 初始化
         if ocr is None:
-            ocr = PaddleOCR(
-                lang="ch",
-                device="cpu",
-                use_doc_orientation_classify=True,
-                use_doc_unwarping=False,
-                use_textline_orientation=True,
-            )
+            ocr = _create_ocr_engine()
 
         document_ocr_pages = {}
 
@@ -216,6 +209,26 @@ def OCR(ocr, image_path: Path):
             lines.append(item)
 
     return lines
+
+
+def _create_ocr_engine():
+    """Load the optional PaddleOCR adapter only when OCR work is required."""
+
+    try:
+        from paddleocr import PaddleOCR
+    except ModuleNotFoundError as exc:
+        raise RuntimeError(
+            "OCR pages were detected, but the optional 'paddleocr' "
+            "dependency is not installed."
+        ) from exc
+
+    return PaddleOCR(
+        lang="ch",
+        device="cpu",
+        use_doc_orientation_classify=True,
+        use_doc_unwarping=False,
+        use_textline_orientation=True,
+    )
 
 
 def OpenDataLoader(paths: PipelinePaths | None = None):
