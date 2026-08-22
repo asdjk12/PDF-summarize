@@ -10,4 +10,5 @@ PDF_Output
 PDF_Output\analysis
 stable_pdf_output.md
 /tests/
+/model/
 canonical_documents.json

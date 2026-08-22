@@ -447,7 +447,7 @@ tests/visual_retrieval_contract_test.py
 tests/retrieval_evaluation_test.py
 ```
 
-Stage 1 的 PixelRAG 验证放在 `spikes/pixelrag/`，生产 module 不得依赖 spike 代码。只有 Spike 达到采用门槛后，Stage 2 才物理化：
+Stage 1 的 PixelRAG 验证放在项目指定的 `PixelRAG/`，生产 module 不得依赖 spike 代码。只有 Spike 达到采用门槛后，Stage 2 才物理化：
 
 ```text
 pdf_knowledge_agent/application/search_evidence
