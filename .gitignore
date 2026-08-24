@@ -1,14 +1,8 @@
 .codex
 .agents
 __pycache__
-.serena
 .venv
-.vscode
-reference
 .pytest_cache
-PDF_Output
-PDF_Output\analysis
-stable_pdf_output.md
-/tests/
-/model/
-canonical_documents.json
+model
+PDF_Folder
+AGENT.md

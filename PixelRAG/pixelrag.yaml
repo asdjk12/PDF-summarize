@@ -1,9 +1,0 @@
-source:
-  type: local
-  path: ../PDF_Folder
-
-embed:
-  model: ../model/modelscope/hub/models/Qwen/Qwen3-VL-Embedding-2B
-  device: auto
-
-output: ./work/index
