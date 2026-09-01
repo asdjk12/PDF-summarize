@@ -81,6 +81,35 @@ class DocumentRenderer:
             for page_number in range(1, page_count + 1)
         ]
 
+    def delete_version(self, document_id: str, content_hash: str) -> None:
+        """幂等删除模块自有的指定文档内容版本。"""
+
+        document_root = (
+            self._state_root / "assets" / self._storage_key(document_id)
+        )
+        version_dir = document_root / self._storage_key(content_hash)
+        try:
+            if version_dir.exists():
+                shutil.rmtree(version_dir)
+        except OSError as exc:
+            raise RenderError("failed to delete rendered document version") from exc
+        try:
+            document_root.rmdir()
+        except OSError:
+            pass
+
+    def delete_document(self, document_id: str) -> None:
+        """幂等删除模块拥有的全部文档渲染版本。"""
+
+        document_root = (
+            self._state_root / "assets" / self._storage_key(document_id)
+        )
+        try:
+            if document_root.exists():
+                shutil.rmtree(document_root)
+        except OSError as exc:
+            raise RenderError("failed to delete rendered document assets") from exc
+
     @staticmethod
     def _storage_key(value: str) -> str:
         """将外部标识转换为固定、不可穿越目录的存储键。"""
